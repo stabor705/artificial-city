@@ -1,0 +1,3349 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "0",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "tertiary",
+                "lanes": "2",
+                "lit": "yes",
+                "maxspeed": "50",
+                "motor_vehicle": null,
+                "name": "Aleja Kijowska",
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": "separate",
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 21094558,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"highway:category:pl\":\"3\",\"source:maxspeed\":\"PL:urban\",\"unsigned_ref\":\"2264K\"}",
+                "osm_type": "way",
+                "length": 329.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913864135742188,
+                            50.06876754760742
+                        ],
+                        [
+                            19.913976669311523,
+                            50.0692138671875
+                        ]
+                    ],
+                    [
+                        [
+                            19.913976669311523,
+                            50.0692138671875
+                        ],
+                        [
+                            19.913999557495117,
+                            50.069297790527344
+                        ]
+                    ],
+                    [
+                        [
+                            19.913999557495117,
+                            50.069297790527344
+                        ],
+                        [
+                            19.91403579711914,
+                            50.0694580078125
+                        ]
+                    ],
+                    [
+                        [
+                            19.91403579711914,
+                            50.0694580078125
+                        ],
+                        [
+                            19.914220809936523,
+                            50.07014465332031
+                        ]
+                    ],
+                    [
+                        [
+                            19.914220809936523,
+                            50.07014465332031
+                        ],
+                        [
+                            19.914287567138672,
+                            50.07042694091797
+                        ]
+                    ],
+                    [
+                        [
+                            19.914287567138672,
+                            50.07042694091797
+                        ],
+                        [
+                            19.914470672607422,
+                            50.071144104003906
+                        ]
+                    ],
+                    [
+                        [
+                            19.914470672607422,
+                            50.071144104003906
+                        ],
+                        [
+                            19.914505004882812,
+                            50.07121658325195
+                        ]
+                    ],
+                    [
+                        [
+                            19.914505004882812,
+                            50.07121658325195
+                        ],
+                        [
+                            19.914562225341797,
+                            50.071319580078125
+                        ]
+                    ],
+                    [
+                        [
+                            19.914562225341797,
+                            50.071319580078125
+                        ],
+                        [
+                            19.914764404296875,
+                            50.07166290283203
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "1",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "secondary",
+                "lanes": "3",
+                "lit": "yes",
+                "maxspeed": "50",
+                "motor_vehicle": null,
+                "name": "Nawojki",
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": "separate",
+                "smoothness": "good",
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 24559263,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"lanes:forward\":\"2\",\"source\":\"gps\",\"source:maxspeed\":\"PL:urban\",\"turn:lanes:forward\":\"through|right\"}",
+                "osm_type": "way",
+                "length": 70.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91448402404785,
+                            50.06764602661133
+                        ],
+                        [
+                            19.9141902923584,
+                            50.067745208740234
+                        ]
+                    ],
+                    [
+                        [
+                            19.9141902923584,
+                            50.067745208740234
+                        ],
+                        [
+                            19.913637161254883,
+                            50.067970275878906
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "2",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": "good",
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 25805324,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 42.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913490295410156,
+                            50.067962646484375
+                        ],
+                        [
+                            19.913406372070312,
+                            50.06767654418945
+                        ]
+                    ],
+                    [
+                        [
+                            19.913406372070312,
+                            50.06767654418945
+                        ],
+                        [
+                            19.913379669189453,
+                            50.06759262084961
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "3",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "secondary",
+                "lanes": "3",
+                "lit": "yes",
+                "maxspeed": "50",
+                "motor_vehicle": null,
+                "name": "Nawojki",
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": "separate",
+                "smoothness": "good",
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 114324801,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"lanes:backward\":\"2\",\"source\":\"gps\",\"source:maxspeed\":\"PL:urban\",\"turn:lanes:backward\":\"left|through\"}",
+                "osm_type": "way",
+                "length": 38.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913637161254883,
+                            50.067970275878906
+                        ],
+                        [
+                            19.913484573364258,
+                            50.068031311035156
+                        ]
+                    ],
+                    [
+                        [
+                            19.913484573364258,
+                            50.068031311035156
+                        ],
+                        [
+                            19.913192749023438,
+                            50.06815719604492
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "4",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": "designated",
+                "cycleway": null,
+                "foot": "designated",
+                "footway": null,
+                "highway": "path",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": "yes",
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paved",
+                "tunnel": null,
+                "width": null,
+                "id": 119917098,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"cycleway:surface\":\"asphalt\",\"footway:surface\":\"paving_stones\"}",
+                "osm_type": "way",
+                "length": 195.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913883209228516,
+                            50.0694694519043
+                        ],
+                        [
+                            19.914037704467773,
+                            50.07010269165039
+                        ]
+                    ],
+                    [
+                        [
+                            19.914037704467773,
+                            50.07010269165039
+                        ],
+                        [
+                            19.914052963256836,
+                            50.07016372680664
+                        ]
+                    ],
+                    [
+                        [
+                            19.914052963256836,
+                            50.07016372680664
+                        ],
+                        [
+                            19.914306640625,
+                            50.0711669921875
+                        ]
+                    ],
+                    [
+                        [
+                            19.914306640625,
+                            50.0711669921875
+                        ],
+                        [
+                            19.914302825927734,
+                            50.07118606567383
+                        ]
+                    ],
+                    [
+                        [
+                            19.914302825927734,
+                            50.07118606567383
+                        ],
+                        [
+                            19.914297103881836,
+                            50.071205139160156
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "5",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "service",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": "driveway",
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 119917101,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 55.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91367530822754,
+                            50.06938171386719
+                        ],
+                        [
+                            19.913606643676758,
+                            50.069358825683594
+                        ]
+                    ],
+                    [
+                        [
+                            19.913606643676758,
+                            50.069358825683594
+                        ],
+                        [
+                            19.913572311401367,
+                            50.06924819946289
+                        ]
+                    ],
+                    [
+                        [
+                            19.913572311401367,
+                            50.06924819946289
+                        ],
+                        [
+                            19.913490295410156,
+                            50.06924819946289
+                        ]
+                    ],
+                    [
+                        [
+                            19.913490295410156,
+                            50.06924819946289
+                        ],
+                        [
+                            19.913053512573242,
+                            50.06929016113281
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "6",
+            "type": "Feature",
+            "properties": {
+                "access": "private",
+                "bicycle": null,
+                "cycleway": null,
+                "foot": "yes",
+                "footway": null,
+                "highway": "service",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 163857743,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 67.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914287567138672,
+                            50.07042694091797
+                        ],
+                        [
+                            19.914461135864258,
+                            50.070411682128906
+                        ]
+                    ],
+                    [
+                        [
+                            19.914461135864258,
+                            50.070411682128906
+                        ],
+                        [
+                            19.91453742980957,
+                            50.070404052734375
+                        ]
+                    ],
+                    [
+                        [
+                            19.91453742980957,
+                            50.070404052734375
+                        ],
+                        [
+                            19.914766311645508,
+                            50.070350646972656
+                        ]
+                    ],
+                    [
+                        [
+                            19.914766311645508,
+                            50.070350646972656
+                        ],
+                        [
+                            19.915176391601562,
+                            50.070316314697266
+                        ]
+                    ],
+                    [
+                        [
+                            19.915176391601562,
+                            50.070316314697266
+                        ],
+                        [
+                            19.915206909179688,
+                            50.070316314697266
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "7",
+            "type": "Feature",
+            "properties": {
+                "access": "private",
+                "bicycle": null,
+                "cycleway": null,
+                "foot": "yes",
+                "footway": null,
+                "highway": "service",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": "private",
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": "driveway",
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 177365945,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 52.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914764404296875,
+                            50.07166290283203
+                        ],
+                        [
+                            19.914913177490234,
+                            50.071624755859375
+                        ]
+                    ],
+                    [
+                        [
+                            19.914913177490234,
+                            50.071624755859375
+                        ],
+                        [
+                            19.91513442993164,
+                            50.07156753540039
+                        ]
+                    ],
+                    [
+                        [
+                            19.91513442993164,
+                            50.07156753540039
+                        ],
+                        [
+                            19.915197372436523,
+                            50.07155227661133
+                        ]
+                    ],
+                    [
+                        [
+                            19.915197372436523,
+                            50.07155227661133
+                        ],
+                        [
+                            19.91510772705078,
+                            50.07139587402344
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "8",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": "excellent",
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 212763475,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 79.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913490295410156,
+                            50.067962646484375
+                        ],
+                        [
+                            19.913610458374023,
+                            50.06791687011719
+                        ]
+                    ],
+                    [
+                        [
+                            19.913610458374023,
+                            50.06791687011719
+                        ],
+                        [
+                            19.913848876953125,
+                            50.06782150268555
+                        ]
+                    ],
+                    [
+                        [
+                            19.913848876953125,
+                            50.06782150268555
+                        ],
+                        [
+                            19.913881301879883,
+                            50.06781005859375
+                        ]
+                    ],
+                    [
+                        [
+                            19.913881301879883,
+                            50.06781005859375
+                        ],
+                        [
+                            19.91428565979004,
+                            50.06764602661133
+                        ]
+                    ],
+                    [
+                        [
+                            19.91428565979004,
+                            50.06764602661133
+                        ],
+                        [
+                            19.914348602294922,
+                            50.06761169433594
+                        ]
+                    ],
+                    [
+                        [
+                            19.914348602294922,
+                            50.06761169433594
+                        ],
+                        [
+                            19.91437530517578,
+                            50.06755828857422
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "9",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "sidewalk",
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": "excellent",
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 226286694,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 16.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913490295410156,
+                            50.067962646484375
+                        ],
+                        [
+                            19.91342544555664,
+                            50.06796646118164
+                        ]
+                    ],
+                    [
+                        [
+                            19.91342544555664,
+                            50.06796646118164
+                        ],
+                        [
+                            19.913288116455078,
+                            50.06800842285156
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "10",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 226286696,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"check_date:surface\":\"2021-10-13\"}",
+                "osm_type": "way",
+                "length": 38.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91309356689453,
+                            50.06829833984375
+                        ],
+                        [
+                            19.91328239440918,
+                            50.068294525146484
+                        ]
+                    ],
+                    [
+                        [
+                            19.91328239440918,
+                            50.068294525146484
+                        ],
+                        [
+                            19.913494110107422,
+                            50.068355560302734
+                        ]
+                    ],
+                    [
+                        [
+                            19.913494110107422,
+                            50.068355560302734
+                        ],
+                        [
+                            19.913602828979492,
+                            50.0683708190918
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "11",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 232217340,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 24.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91438865661621,
+                            50.07012939453125
+                        ],
+                        [
+                            19.914220809936523,
+                            50.07014465332031
+                        ]
+                    ],
+                    [
+                        [
+                            19.914220809936523,
+                            50.07014465332031
+                        ],
+                        [
+                            19.914052963256836,
+                            50.07016372680664
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "12",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 232217341,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 43.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914913177490234,
+                            50.071624755859375
+                        ],
+                        [
+                            19.914709091186523,
+                            50.0712890625
+                        ]
+                    ],
+                    [
+                        [
+                            19.914709091186523,
+                            50.0712890625
+                        ],
+                        [
+                            19.91470718383789,
+                            50.071266174316406
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "13",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "crossing",
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 247416794,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 24.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914306640625,
+                            50.0711669921875
+                        ],
+                        [
+                            19.914470672607422,
+                            50.071144104003906
+                        ]
+                    ],
+                    [
+                        [
+                            19.914470672607422,
+                            50.071144104003906
+                        ],
+                        [
+                            19.91463851928711,
+                            50.07112121582031
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "14",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "crossing",
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 247416795,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 11.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914472579956055,
+                            50.07133865356445
+                        ],
+                        [
+                            19.914562225341797,
+                            50.071319580078125
+                        ]
+                    ],
+                    [
+                        [
+                            19.914562225341797,
+                            50.071319580078125
+                        ],
+                        [
+                            19.914623260498047,
+                            50.07130813598633
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "15",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 247416796,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 59.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914335250854492,
+                            50.071327209472656
+                        ],
+                        [
+                            19.913782119750977,
+                            50.0713996887207
+                        ]
+                    ],
+                    [
+                        [
+                            19.913782119750977,
+                            50.0713996887207
+                        ],
+                        [
+                            19.91352653503418,
+                            50.071434020996094
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "16",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 247416797,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 43.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91470718383789,
+                            50.071266174316406
+                        ],
+                        [
+                            19.91494369506836,
+                            50.07120895385742
+                        ]
+                    ],
+                    [
+                        [
+                            19.91494369506836,
+                            50.07120895385742
+                        ],
+                        [
+                            19.915285110473633,
+                            50.071163177490234
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "17",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "sidewalk",
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 247417140,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 87.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914302825927734,
+                            50.07118606567383
+                        ],
+                        [
+                            19.91408348083496,
+                            50.07121658325195
+                        ]
+                    ],
+                    [
+                        [
+                            19.91408348083496,
+                            50.07121658325195
+                        ],
+                        [
+                            19.913957595825195,
+                            50.071231842041016
+                        ]
+                    ],
+                    [
+                        [
+                            19.913957595825195,
+                            50.071231842041016
+                        ],
+                        [
+                            19.913646697998047,
+                            50.07127380371094
+                        ]
+                    ],
+                    [
+                        [
+                            19.913646697998047,
+                            50.07127380371094
+                        ],
+                        [
+                            19.913562774658203,
+                            50.071285247802734
+                        ]
+                    ],
+                    [
+                        [
+                            19.913562774658203,
+                            50.071285247802734
+                        ],
+                        [
+                            19.913461685180664,
+                            50.0713005065918
+                        ]
+                    ],
+                    [
+                        [
+                            19.913461685180664,
+                            50.0713005065918
+                        ],
+                        [
+                            19.9132022857666,
+                            50.07133102416992
+                        ]
+                    ],
+                    [
+                        [
+                            19.9132022857666,
+                            50.07133102416992
+                        ],
+                        [
+                            19.91311264038086,
+                            50.07133865356445
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "18",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": "yes",
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": "Misjonarska",
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 252359355,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 76.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91322135925293,
+                            50.06999588012695
+                        ],
+                        [
+                            19.91327476501465,
+                            50.0699577331543
+                        ]
+                    ],
+                    [
+                        [
+                            19.91327476501465,
+                            50.0699577331543
+                        ],
+                        [
+                            19.91379737854004,
+                            50.069557189941406
+                        ]
+                    ],
+                    [
+                        [
+                            19.91379737854004,
+                            50.069557189941406
+                        ],
+                        [
+                            19.913818359375,
+                            50.06951141357422
+                        ]
+                    ],
+                    [
+                        [
+                            19.913818359375,
+                            50.06951141357422
+                        ],
+                        [
+                            19.913883209228516,
+                            50.0694694519043
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "19",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": "bad",
+                "surface": "gravel",
+                "tunnel": null,
+                "width": null,
+                "id": 283922593,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"check_date:surface\":\"2021-10-19\"}",
+                "osm_type": "way",
+                "length": 21.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913881301879883,
+                            50.06781005859375
+                        ],
+                        [
+                            19.913816452026367,
+                            50.067623138427734
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "20",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": "bad",
+                "surface": "gravel",
+                "tunnel": null,
+                "width": null,
+                "id": 283922594,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"check_date:surface\":\"2021-10-20\"}",
+                "osm_type": "way",
+                "length": 59.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913406372070312,
+                            50.06767654418945
+                        ],
+                        [
+                            19.913816452026367,
+                            50.067623138427734
+                        ]
+                    ],
+                    [
+                        [
+                            19.913816452026367,
+                            50.067623138427734
+                        ],
+                        [
+                            19.91408348083496,
+                            50.06758499145508
+                        ]
+                    ],
+                    [
+                        [
+                            19.91408348083496,
+                            50.06758499145508
+                        ],
+                        [
+                            19.91411018371582,
+                            50.06766891479492
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "21",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": "designated",
+                "cycleway": null,
+                "foot": "designated",
+                "footway": null,
+                "highway": "path",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": "crossing",
+                "service": null,
+                "segregated": "yes",
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 298008546,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"cycleway:surface\":\"asphalt\",\"footway:surface\":\"asphalt\"}",
+                "osm_type": "way",
+                "length": 8.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914297103881836,
+                            50.071205139160156
+                        ],
+                        [
+                            19.914308547973633,
+                            50.07123947143555
+                        ]
+                    ],
+                    [
+                        [
+                            19.914308547973633,
+                            50.07123947143555
+                        ],
+                        [
+                            19.91431999206543,
+                            50.0712776184082
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "22",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "crossing",
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 298008551,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 17.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91470718383789,
+                            50.071266174316406
+                        ],
+                        [
+                            19.914674758911133,
+                            50.071189880371094
+                        ]
+                    ],
+                    [
+                        [
+                            19.914674758911133,
+                            50.071189880371094
+                        ],
+                        [
+                            19.91463851928711,
+                            50.07112121582031
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "23",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "sidewalk",
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 298008563,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 295.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91463851928711,
+                            50.07112121582031
+                        ],
+                        [
+                            19.914480209350586,
+                            50.07048416137695
+                        ]
+                    ],
+                    [
+                        [
+                            19.914480209350586,
+                            50.07048416137695
+                        ],
+                        [
+                            19.914461135864258,
+                            50.070411682128906
+                        ]
+                    ],
+                    [
+                        [
+                            19.914461135864258,
+                            50.070411682128906
+                        ],
+                        [
+                            19.91438865661621,
+                            50.07012939453125
+                        ]
+                    ],
+                    [
+                        [
+                            19.91438865661621,
+                            50.07012939453125
+                        ],
+                        [
+                            19.914188385009766,
+                            50.069332122802734
+                        ]
+                    ],
+                    [
+                        [
+                            19.914188385009766,
+                            50.069332122802734
+                        ],
+                        [
+                            19.91415786743164,
+                            50.069210052490234
+                        ]
+                    ],
+                    [
+                        [
+                            19.91415786743164,
+                            50.069210052490234
+                        ],
+                        [
+                            19.913972854614258,
+                            50.06850051879883
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "24",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "service",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": "driveway",
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 339705812,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 20.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91410255432129,
+                            50.071266174316406
+                        ],
+                        [
+                            19.91408348083496,
+                            50.07121658325195
+                        ]
+                    ],
+                    [
+                        [
+                            19.91408348083496,
+                            50.07121658325195
+                        ],
+                        [
+                            19.91398811340332,
+                            50.071102142333984
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "25",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": "opposite",
+                "foot": null,
+                "footway": null,
+                "highway": "residential",
+                "lanes": "1",
+                "lit": "yes",
+                "maxspeed": "30",
+                "motor_vehicle": null,
+                "name": "Juliusza Lea",
+                "oneway": "yes",
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": "separate",
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 447662401,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"oneway:bicycle\":\"no\",\"source:maxspeed\":\"PL:zone30\"}",
+                "osm_type": "way",
+                "length": 12.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914505004882812,
+                            50.07121658325195
+                        ],
+                        [
+                            19.914674758911133,
+                            50.071189880371094
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "26",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "residential",
+                "lanes": "2",
+                "lit": "yes",
+                "maxspeed": "30",
+                "motor_vehicle": null,
+                "name": "Juliusza Lea",
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": "separate",
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 475556413,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"source:maxspeed\":\"PL:zone30\"}",
+                "osm_type": "way",
+                "length": 82.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91338348388672,
+                            50.07135772705078
+                        ],
+                        [
+                            19.913475036621094,
+                            50.071346282958984
+                        ]
+                    ],
+                    [
+                        [
+                            19.913475036621094,
+                            50.071346282958984
+                        ],
+                        [
+                            19.913660049438477,
+                            50.07132339477539
+                        ]
+                    ],
+                    [
+                        [
+                            19.913660049438477,
+                            50.07132339477539
+                        ],
+                        [
+                            19.913976669311523,
+                            50.071285247802734
+                        ]
+                    ],
+                    [
+                        [
+                            19.913976669311523,
+                            50.071285247802734
+                        ],
+                        [
+                            19.91410255432129,
+                            50.071266174316406
+                        ]
+                    ],
+                    [
+                        [
+                            19.91410255432129,
+                            50.071266174316406
+                        ],
+                        [
+                            19.914308547973633,
+                            50.07123947143555
+                        ]
+                    ],
+                    [
+                        [
+                            19.914308547973633,
+                            50.07123947143555
+                        ],
+                        [
+                            19.914505004882812,
+                            50.07121658325195
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "27",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "sidewalk",
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": "excellent",
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 504627054,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 39.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91309356689453,
+                            50.06829833984375
+                        ],
+                        [
+                            19.913545608520508,
+                            50.06810760498047
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "28",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "tertiary",
+                "lanes": "3",
+                "lit": "yes",
+                "maxspeed": "50",
+                "motor_vehicle": null,
+                "name": "Aleja Kijowska",
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": "separate",
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 713092110,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"highway:category:pl\":\"3\",\"lanes:backward\":\"2\",\"source:maxspeed\":\"PL:urban\",\"turn:lanes:backward\":\"left|right\",\"unsigned_ref\":\"2264K\"}",
+                "osm_type": "way",
+                "length": 90.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913637161254883,
+                            50.067970275878906
+                        ],
+                        [
+                            19.91368865966797,
+                            50.06805419921875
+                        ]
+                    ],
+                    [
+                        [
+                            19.91368865966797,
+                            50.06805419921875
+                        ],
+                        [
+                            19.913785934448242,
+                            50.06843185424805
+                        ]
+                    ],
+                    [
+                        [
+                            19.913785934448242,
+                            50.06843185424805
+                        ],
+                        [
+                            19.913806915283203,
+                            50.06851577758789
+                        ]
+                    ],
+                    [
+                        [
+                            19.913806915283203,
+                            50.06851577758789
+                        ],
+                        [
+                            19.913864135742188,
+                            50.06876754760742
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "29",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "sidewalk",
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 759900790,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 99.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91384506225586,
+                            50.067989349365234
+                        ],
+                        [
+                            19.914363861083984,
+                            50.067779541015625
+                        ]
+                    ],
+                    [
+                        [
+                            19.914363861083984,
+                            50.067779541015625
+                        ],
+                        [
+                            19.914527893066406,
+                            50.06772994995117
+                        ]
+                    ],
+                    [
+                        [
+                            19.914527893066406,
+                            50.06772994995117
+                        ],
+                        [
+                            19.914897918701172,
+                            50.067665100097656
+                        ]
+                    ],
+                    [
+                        [
+                            19.914897918701172,
+                            50.067665100097656
+                        ],
+                        [
+                            19.914955139160156,
+                            50.067657470703125
+                        ]
+                    ],
+                    [
+                        [
+                            19.914955139160156,
+                            50.067657470703125
+                        ],
+                        [
+                            19.915102005004883,
+                            50.0676383972168
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "30",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": "designated",
+                "cycleway": null,
+                "foot": "designated",
+                "footway": null,
+                "highway": "path",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": "crossing",
+                "service": null,
+                "segregated": "yes",
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 759900791,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"cycleway:surface\":\"asphalt\",\"cycleway:width\":\"1.9\",\"footway:surface\":\"asphalt\"}",
+                "osm_type": "way",
+                "length": 13.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91360855102539,
+                            50.068084716796875
+                        ],
+                        [
+                            19.91368865966797,
+                            50.06805419921875
+                        ]
+                    ],
+                    [
+                        [
+                            19.91368865966797,
+                            50.06805419921875
+                        ],
+                        [
+                            19.91376304626465,
+                            50.068023681640625
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "31",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": "designated",
+                "cycleway": null,
+                "foot": "designated",
+                "footway": null,
+                "highway": "path",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": "crossing",
+                "service": null,
+                "segregated": "yes",
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 759900792,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"cycleway:surface\":\"asphalt\",\"cycleway:width\":\"2.8\",\"footway:surface\":\"asphalt\",\"source:cycleway:width\":\"ARCore\"}",
+                "osm_type": "way",
+                "length": 9.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913515090942383,
+                            50.06806945800781
+                        ],
+                        [
+                            19.913484573364258,
+                            50.068031311035156
+                        ]
+                    ],
+                    [
+                        [
+                            19.913484573364258,
+                            50.068031311035156
+                        ],
+                        [
+                            19.9134521484375,
+                            50.067996978759766
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "32",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": "designated",
+                "cycleway": null,
+                "foot": "designated",
+                "footway": null,
+                "highway": "path",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": "yes",
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paved",
+                "tunnel": null,
+                "width": null,
+                "id": 759900793,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"cycleway:surface\":\"asphalt\",\"footway:surface\":\"paving_stones\"}",
+                "osm_type": "way",
+                "length": 158.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913883209228516,
+                            50.0694694519043
+                        ],
+                        [
+                            19.913700103759766,
+                            50.06875228881836
+                        ]
+                    ],
+                    [
+                        [
+                            19.913700103759766,
+                            50.06875228881836
+                        ],
+                        [
+                            19.913671493530273,
+                            50.068641662597656
+                        ]
+                    ],
+                    [
+                        [
+                            19.913671493530273,
+                            50.068641662597656
+                        ],
+                        [
+                            19.913602828979492,
+                            50.0683708190918
+                        ]
+                    ],
+                    [
+                        [
+                            19.913602828979492,
+                            50.0683708190918
+                        ],
+                        [
+                            19.913545608520508,
+                            50.06810760498047
+                        ]
+                    ],
+                    [
+                        [
+                            19.913545608520508,
+                            50.06810760498047
+                        ],
+                        [
+                            19.913515090942383,
+                            50.06806945800781
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "33",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "sidewalk",
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": "good",
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 956021670,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 4.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.9134521484375,
+                            50.067996978759766
+                        ],
+                        [
+                            19.91342544555664,
+                            50.06796646118164
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "34",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "service",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 1072012487,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 11.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913515090942383,
+                            50.06902313232422
+                        ],
+                        [
+                            19.913360595703125,
+                            50.06903839111328
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "35",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "service",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 1072012488,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 43.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913572311401367,
+                            50.06924819946289
+                        ],
+                        [
+                            19.913515090942383,
+                            50.06902313232422
+                        ]
+                    ],
+                    [
+                        [
+                            19.913515090942383,
+                            50.06902313232422
+                        ],
+                        [
+                            19.91347312927246,
+                            50.06886291503906
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "36",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "steps",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 1072012491,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 9.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913583755493164,
+                            50.0687141418457
+                        ],
+                        [
+                            19.913455963134766,
+                            50.0687255859375
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "37",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 1072012492,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 13.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913455963134766,
+                            50.0687255859375
+                        ],
+                        [
+                            19.913339614868164,
+                            50.0687370300293
+                        ]
+                    ],
+                    [
+                        [
+                            19.913339614868164,
+                            50.0687370300293
+                        ],
+                        [
+                            19.913280487060547,
+                            50.06874084472656
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "38",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 1072012494,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 2.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913604736328125,
+                            50.06871032714844
+                        ],
+                        [
+                            19.913583755493164,
+                            50.0687141418457
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "39",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 1072012495,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 20.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913700103759766,
+                            50.06875228881836
+                        ],
+                        [
+                            19.913610458374023,
+                            50.06874084472656
+                        ]
+                    ],
+                    [
+                        [
+                            19.913610458374023,
+                            50.06874084472656
+                        ],
+                        [
+                            19.913604736328125,
+                            50.06871032714844
+                        ]
+                    ],
+                    [
+                        [
+                            19.913604736328125,
+                            50.06871032714844
+                        ],
+                        [
+                            19.913597106933594,
+                            50.06867599487305
+                        ]
+                    ],
+                    [
+                        [
+                            19.913597106933594,
+                            50.06867599487305
+                        ],
+                        [
+                            19.913671493530273,
+                            50.068641662597656
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "40",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 1072012496,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 33.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913089752197266,
+                            50.0687141418457
+                        ],
+                        [
+                            19.91327476501465,
+                            50.0687141418457
+                        ]
+                    ],
+                    [
+                        [
+                            19.91327476501465,
+                            50.0687141418457
+                        ],
+                        [
+                            19.913280487060547,
+                            50.06874084472656
+                        ]
+                    ],
+                    [
+                        [
+                            19.913280487060547,
+                            50.06874084472656
+                        ],
+                        [
+                            19.913301467895508,
+                            50.0688362121582
+                        ]
+                    ],
+                    [
+                        [
+                            19.913301467895508,
+                            50.0688362121582
+                        ],
+                        [
+                            19.913219451904297,
+                            50.068843841552734
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "41",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "service",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": "driveway",
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 1105319060,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 29.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91403579711914,
+                            50.0694580078125
+                        ],
+                        [
+                            19.913883209228516,
+                            50.0694694519043
+                        ]
+                    ],
+                    [
+                        [
+                            19.913883209228516,
+                            50.0694694519043
+                        ],
+                        [
+                            19.913814544677734,
+                            50.0694465637207
+                        ]
+                    ],
+                    [
+                        [
+                            19.913814544677734,
+                            50.0694465637207
+                        ],
+                        [
+                            19.91367530822754,
+                            50.06938171386719
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "42",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": null,
+                "tunnel": null,
+                "width": null,
+                "id": 1105321099,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 6.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914480209350586,
+                            50.07048416137695
+                        ],
+                        [
+                            19.914569854736328,
+                            50.07047653198242
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "43",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "crossing",
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 1112094049,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 9.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91435432434082,
+                            50.07135772705078
+                        ],
+                        [
+                            19.914472579956055,
+                            50.07133865356445
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "44",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": "crossing",
+                "highway": "footway",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 1112094050,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 6.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914623260498047,
+                            50.07130813598633
+                        ],
+                        [
+                            19.914709091186523,
+                            50.0712890625
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "45",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "residential",
+                "lanes": "2",
+                "lit": "yes",
+                "maxspeed": "30",
+                "motor_vehicle": null,
+                "name": "Elbl\u0105ska",
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "asphalt",
+                "tunnel": null,
+                "width": null,
+                "id": 1155625064,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"source:maxspeed\":\"PL:zone30\"}",
+                "osm_type": "way",
+                "length": 58.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914609909057617,
+                            50.06843185424805
+                        ],
+                        [
+                            19.913972854614258,
+                            50.06850051879883
+                        ]
+                    ],
+                    [
+                        [
+                            19.913972854614258,
+                            50.06850051879883
+                        ],
+                        [
+                            19.913806915283203,
+                            50.06851577758789
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "46",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": "designated",
+                "cycleway": null,
+                "foot": "designated",
+                "footway": null,
+                "highway": "path",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": "yes",
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paved",
+                "tunnel": null,
+                "width": null,
+                "id": 1184014084,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"cycleway:surface\":\"asphalt\",\"cycleway:width\":\"1.9\",\"footway:surface\":\"paving_stones\"}",
+                "osm_type": "way",
+                "length": 65.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913972854614258,
+                            50.06850051879883
+                        ],
+                        [
+                            19.91384506225586,
+                            50.067989349365234
+                        ]
+                    ],
+                    [
+                        [
+                            19.91384506225586,
+                            50.067989349365234
+                        ],
+                        [
+                            19.91376304626465,
+                            50.068023681640625
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "47",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": "designated",
+                "cycleway": null,
+                "foot": "designated",
+                "footway": null,
+                "highway": "path",
+                "lanes": null,
+                "lit": "yes",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": "yes",
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paved",
+                "tunnel": null,
+                "width": null,
+                "id": 1184014085,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"cycleway:surface\":\"asphalt\",\"footway:surface\":\"paving_stones\"}",
+                "osm_type": "way",
+                "length": 5.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.913545608520508,
+                            50.06810760498047
+                        ],
+                        [
+                            19.91360855102539,
+                            50.068084716796875
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "48",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": "designated",
+                "cycleway": null,
+                "foot": "designated",
+                "footway": null,
+                "highway": "path",
+                "lanes": null,
+                "lit": "no",
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": "yes",
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paved",
+                "tunnel": null,
+                "width": null,
+                "id": 1184014086,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false,\"cycleway:surface\":\"asphalt\",\"footway:surface\":\"paving_stones\"}",
+                "osm_type": "way",
+                "length": 26.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91431999206543,
+                            50.0712776184082
+                        ],
+                        [
+                            19.914335250854492,
+                            50.071327209472656
+                        ]
+                    ],
+                    [
+                        [
+                            19.914335250854492,
+                            50.071327209472656
+                        ],
+                        [
+                            19.91435432434082,
+                            50.07135772705078
+                        ]
+                    ],
+                    [
+                        [
+                            19.91435432434082,
+                            50.07135772705078
+                        ],
+                        [
+                            19.914438247680664,
+                            50.071502685546875
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "49",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 1184014087,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 8.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.914438247680664,
+                            50.071502685546875
+                        ],
+                        [
+                            19.91447639465332,
+                            50.071571350097656
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "50",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "steps",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paved",
+                "tunnel": null,
+                "width": null,
+                "id": 1184014088,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 3.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91447639465332,
+                            50.071571350097656
+                        ],
+                        [
+                            19.91448974609375,
+                            50.071598052978516
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "id": "51",
+            "type": "Feature",
+            "properties": {
+                "access": null,
+                "bicycle": null,
+                "cycleway": null,
+                "foot": null,
+                "footway": null,
+                "highway": "footway",
+                "lanes": null,
+                "lit": null,
+                "maxspeed": null,
+                "motor_vehicle": null,
+                "name": null,
+                "oneway": null,
+                "path": null,
+                "service": null,
+                "segregated": null,
+                "sidewalk": null,
+                "smoothness": null,
+                "surface": "paving_stones",
+                "tunnel": null,
+                "width": null,
+                "id": 1184014089,
+                "timestamp": 0,
+                "version": -1,
+                "tags": "{\"visible\":false}",
+                "osm_type": "way",
+                "length": 2.0
+            },
+            "geometry": {
+                "type": "MultiLineString",
+                "coordinates": [
+                    [
+                        [
+                            19.91448974609375,
+                            50.071598052978516
+                        ],
+                        [
+                            19.914499282836914,
+                            50.07161331176758
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
