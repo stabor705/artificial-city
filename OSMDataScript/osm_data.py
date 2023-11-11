@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(
                     prog='osm_data',
                     description='This program collects data using pyosm.'
 )
-parser.add_argument('command', choices=('get_all', 'get_highways', 'get_footways'))
+parser.add_argument('command', choices=('get_all', 'get_highways', 'get_walkways'))
 parser.add_argument('-c', '--city', help='Name of the city you want to download.')
 parser.add_argument('-b', '--boundaries', help='Json file containing points being boundaries.')
 parser.add_argument('-p', '--plot', action='store_true', help='Plot network.')
@@ -21,8 +21,8 @@ parser.add_argument('-o', '--output', action='store_true', help='Output data.')
 parser.add_argument('-s', '--save', help='Save data to file in json format.')
 
 
-def parse_area(boundaries: str) -> shapely.Polygon:
-    with open(boundaries, 'r') as fp:
+def parse_boundaries(boundaries_filename: str) -> shapely.Polygon:
+    with open(boundaries_filename, 'r') as fp:
         points = json.load(fp)
     return shapely.Polygon(points)
 
@@ -42,13 +42,13 @@ def handle_output(data: gpd.GeoDataFrame):
 def main():
     command = parser.parse_args().command
     args = parser.parse_args()
-    bounding_box = parse_area(args.boundaries)
+    bounding_box = parse_boundaries(args.boundaries)
 
     if command == 'get_all':
         data = get_all(args.city, bounding_box)
     elif command == 'get_highways':
         data = get_roads(args.city, bounding_box)
-    elif command == 'get_footways':
+    elif command == 'get_walkways':
         data = get_walkways(args.city, bounding_box)
     handle_output(data)
 

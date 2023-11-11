@@ -20,9 +20,16 @@ def get_all(city: str, bounding_box: Polygon) -> gpd.GeoDataFrame:
 
 
 def get_roads(city: str, bounding_box: Polygon) -> gpd.GeoDataFrame:
-    return download_data(city, bounding_box).get_network(network_type="driving")
+    return download_data(city, bounding_box).get_network(network_type="all")
 
 
 def get_walkways(city: str, bounding_box: Polygon):
-    filters = ['foot']
-    return download_data(city, bounding_box).get_network(network_type="walking", extra_attributes=filters)
+    footway_filters = ['footway', 'path']
+    column_filters = ['osm_type', 'tags', 'version', 'timestamp', 'width', 'tunnel', 'smoothness', 'access', 'area', 'bicycle', 'cycleway', 'motor_vehicle', 'maxspeed', 'name', 'surface', 'oneway', 'lit', 'foot', 'lanes', 'sidewalk', 'service', 'segregated', 'footway', 'path']
+
+    network = download_data(city, bounding_box).get_network(network_type="all")
+    network = network[network['highway'].isin(footway_filters)]
+    network['crossing'] = (network['footway'] == 'crossing') | (network['path'] == 'crossing')
+    network = network.drop(column_filters, axis=1)
+
+    return network
