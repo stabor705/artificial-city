@@ -15,7 +15,7 @@ def download_data(city: str, bounding_box: shapely.Polygon) -> pyrosm.OSM:
     return pyrosm.OSM(fp, bounding_box)
 
 
-def get_all(city: str, bounding_box: Polygon) -> gpd.GeoDataFrame:
+def get_network(city: str, bounding_box: Polygon) -> gpd.GeoDataFrame:
     return download_data(city, bounding_box).get_network(network_type='all')
 
 
@@ -30,7 +30,7 @@ def get_roads(city: str, bounding_box: Polygon) -> gpd.GeoDataFrame:
     return network
 
 
-def get_walkways(city: str, bounding_box: Polygon):
+def get_walkways(city: str, bounding_box: Polygon) -> gpd.GeoDataFrame:
     footway_filters = ['footway', 'path']
     column_filters = ['osm_type', 'tags', 'version', 'timestamp', 'width', 'tunnel', 'smoothness', 'access', 'bicycle', 'cycleway', 'motor_vehicle', 'maxspeed', 'name', 'surface', 'oneway', 'lit', 'foot', 'lanes', 'sidewalk', 'service', 'segregated', 'footway', 'path']
 
@@ -42,5 +42,10 @@ def get_walkways(city: str, bounding_box: Polygon):
     return network
 
 
-def get_buildings(city: str, bounding_box: Polygon):
-    return download_data(city, bounding_box).get_buildings()
+def get_buildings(city: str, bounding_box: Polygon) -> gpd.GeoDataFrame:
+    column_filters = ['height', 'source', 'start_date', 'wikipedia', 'timestamp', 'version', 'tags', 'name', 'opening_hours', 'operator', 'ref', 'visible', 'website', 'addr:city', 'addr:street', 'addr:country', 'addr:housenumber', 'addr:postcode', 'addr:housename', 'osm_type', 'building:material', 'building:levels', 'amenity']
+
+    network = download_data(city, bounding_box).get_buildings()
+    network = network.drop(column_filters, axis=1)
+
+    return network
