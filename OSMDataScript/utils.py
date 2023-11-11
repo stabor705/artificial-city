@@ -40,3 +40,7 @@ def get_walkways(city: str, bounding_box: Polygon):
     network = network.drop(column_filters, axis=1)
 
     return network
+
+
+def get_buildings(city: str, bounding_box: Polygon):
+    return download_data(city, bounding_box).get_buildings()
