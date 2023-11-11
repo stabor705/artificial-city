@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(
                     prog='osm_data',
                     description='This program collects data using pyosm.'
 )
-parser.add_argument('command', choices=('get_all', 'get_highways', 'get_walkways'))
+parser.add_argument('command', choices=('get_all', 'get_roads', 'get_walkways'))
 parser.add_argument('-c', '--city', help='Name of the city you want to download.')
 parser.add_argument('-b', '--boundaries', help='Json file containing points being boundaries.')
 parser.add_argument('-p', '--plot', action='store_true', help='Plot network.')
@@ -46,7 +46,7 @@ def main():
 
     if command == 'get_all':
         data = get_all(args.city, bounding_box)
-    elif command == 'get_highways':
+    elif command == 'get_roads':
         data = get_roads(args.city, bounding_box)
     elif command == 'get_walkways':
         data = get_walkways(args.city, bounding_box)

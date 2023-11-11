@@ -20,14 +20,21 @@ def get_all(city: str, bounding_box: Polygon) -> gpd.GeoDataFrame:
 
 
 def get_roads(city: str, bounding_box: Polygon) -> gpd.GeoDataFrame:
-    return download_data(city, bounding_box).get_network(network_type="all")
+    roads_filters = ['primary', 'secondary', 'tertiary', 'residential']
+    column_filters = ['osm_type', 'tags', 'version', 'timestamp', 'width', 'tunnel', 'smoothness', 'access', 'bicycle', 'cycleway', 'motor_vehicle', 'surface', 'lit', 'foot', 'sidewalk', 'service']
+
+    network = download_data(city, bounding_box).get_network(network_type="driving")
+    network = network[network['highway'].isin(roads_filters)]
+    network = network.drop(column_filters, axis=1)
+
+    return network
 
 
 def get_walkways(city: str, bounding_box: Polygon):
     footway_filters = ['footway', 'path']
-    column_filters = ['osm_type', 'tags', 'version', 'timestamp', 'width', 'tunnel', 'smoothness', 'access', 'area', 'bicycle', 'cycleway', 'motor_vehicle', 'maxspeed', 'name', 'surface', 'oneway', 'lit', 'foot', 'lanes', 'sidewalk', 'service', 'segregated', 'footway', 'path']
+    column_filters = ['osm_type', 'tags', 'version', 'timestamp', 'width', 'tunnel', 'smoothness', 'access', 'bicycle', 'cycleway', 'motor_vehicle', 'maxspeed', 'name', 'surface', 'oneway', 'lit', 'foot', 'lanes', 'sidewalk', 'service', 'segregated', 'footway', 'path']
 
-    network = download_data(city, bounding_box).get_network(network_type="all")
+    network = download_data(city, bounding_box).get_network(network_type="walking")
     network = network[network['highway'].isin(footway_filters)]
     network['crossing'] = (network['footway'] == 'crossing') | (network['path'] == 'crossing')
     network = network.drop(column_filters, axis=1)
