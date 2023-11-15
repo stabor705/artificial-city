@@ -115,3 +115,10 @@ cython_debug/
 .vs/
 .vsconfig
 *.sln
+
+.vscode
+Assembly-CSharp.csproj
+Library
+ProjectSettings
+Temp
+UserSettings
