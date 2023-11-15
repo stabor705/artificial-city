@@ -1,48 +1,55 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using NagelSchreckenbergDemo;
+using NagelSchreckenbergDemo.DirectedGraph;
 
-Console.WriteLine("Hello, World!");
-
-
-var cells = new int[100];
-for (int i = 0; i < cells.Length; i++)
+void StateOut(DirectedGraph graph)
 {
-    cells[i] = 0;
+    foreach (var e in graph.edges)
+    {
+        Console.WriteLine("edge: " + e.id + " from " + e.startV.id + " to " + e.endV.id);
+        Console.Write(string.Join("", e.cells));
+        Console.WriteLine();
+    }
 }
 
-foreach (var cell in cells)
+void MakeMoves(DirectedGraph graph, int n)
 {
-    Console.Write(cell);
+    StateOut(graph);
+
+    for (int i = 0; i < n; i++)
+    {
+        foreach (Edge e in graph.edges)
+            e.MakeMoves();
+
+        StateOut(graph);
+    }
 }
-Console.WriteLine("cells initialized");
 
-var v1 = new Vehicle(1, 5, ref cells);
+var graph = new DirectedGraph();
+graph.AddVertex();
+graph.AddVertex();
+graph.AddVertex();
 
-foreach (var cell in cells)
+graph.AddEdge(100, 0, 1);
+graph.AddEdge(100, 1, 2);
+
+foreach (var v in graph.vertices)
 {
-    Console.Write(cell);
+    Console.WriteLine(v.id);
+    foreach (var adj in v.adjacencyList) { Console.WriteLine("ADJ: " + adj.id); }
 }
-Console.WriteLine("cells after first car");
 
-for (int i = 0; i < cells.Length; i++)
-{
-    cells[i] = 0;
-}
-foreach (var cell in cells)
-{
-    Console.Write(cell);
-}
-Console.WriteLine("cells cleared");
+var v1 = new Vehicle(1, 5, graph.edges[0]);
+// var v2 = new Vehicle(1, 13, graph.edges[1]);
 
-var v2 = new Vehicle(1, 13, ref cells);
-foreach (var cell in cells)
-{
-    Console.Write(cell);
-}
-Console.WriteLine("cells after second car");
+// foreach (var e in graph.edges)
+// {
+//     Console.WriteLine("edge: " + e.id + " from " + e.startV.id + " to " + e.endV.id);
+//     foreach (var c in e.cells)
+//     {
+//         Console.Write(c);
+//     }
+//     Console.WriteLine();
+// }
 
-//if ((new ArraySegment<int>(cells, 0, 13)).All(x => x == 0))
-//{
-//    var v2 = new Vehicle(1, 13, ref cells);
-//}
-
+MakeMoves(graph, 24);

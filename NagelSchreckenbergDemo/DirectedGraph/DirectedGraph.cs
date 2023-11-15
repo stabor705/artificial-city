@@ -4,11 +4,11 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 {
     public class DirectedGraph
     {
-        public List<Vertex> vertices;
-        public int numVertices;
-        public List<Edge> edges;
+        public List<Vertex> vertices { set; get; }
+        public int numVertices { set; get; }
+        public List<Edge> edges { set; get; }
 
-        public int[,] adjacencyMatrix;
+        public int[,] adjacencyMatrix { set; get; }
 
         public DirectedGraph()
         {
@@ -27,23 +27,25 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.edges = edges;
 
             this.adjacencyMatrix = new int[this.numVertices, this.numVertices];
-            for (int i = 0; i < vertices.Count; i++)
-            {
-                for (int j = 0; j < vertices.Count; j++)
-                {
-                    adjacencyMatrix[i, j] = 0;
-                }
-            }
-
             foreach (var edge in edges)
             {
                 adjacencyMatrix[edge.startV.id, edge.endV.id] = 1;
             }
         }
 
-        // public void addVertex()
-        // {
-        //     var vertex = new Vertex(this.numVertices)
-        // }
+        public void AddVertex()
+        {
+            this.vertices.Add(new Vertex(this.numVertices));
+            this.numVertices++;
+        }
+
+        public void AddEdge(int length, int startVertexId, int endVertedId)
+        {
+            Edge edge = new Edge(length, vertices[startVertexId], vertices[endVertedId]);
+
+            this.edges.Add(edge);
+            this.vertices[startVertexId].OutEdges.Add(edge);
+            this.vertices[endVertedId].InEdges.Add(edge);
+        }
     }
 }
