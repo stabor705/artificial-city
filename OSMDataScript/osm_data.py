@@ -43,11 +43,12 @@ def main():
     command = parser.parse_args().command
     args = parser.parse_args()
     bounding_box = parse_boundaries(args.boundaries)
+    city = args.city.lower()
 
     if command == 'get_all':
-        roads = get_roads(args.city, bounding_box)
-        buildings = get_buildings(args.city, bounding_box)
-        walkways = get_walkways(args.city, bounding_box)
+        roads = get_roads(city, bounding_box)
+        buildings = get_buildings(city, bounding_box)
+        walkways = get_walkways(city, bounding_box)
         ax = roads.plot(color='b', figsize=(15, 10))
         ax = buildings.plot(ax=ax, color='r')
         ax = walkways.plot(ax=ax, color='g')
@@ -55,11 +56,11 @@ def main():
         return
 
     if command == 'get_roads':
-        data = get_roads(args.city, bounding_box)
+        data = get_roads(city, bounding_box)
     elif command == 'get_walkways':
-        data = get_walkways(args.city, bounding_box)
+        data = get_walkways(city, bounding_box)
     elif command == 'get_buildings':
-        data = get_buildings(args.city, bounding_box)
+        data = get_buildings(city, bounding_box)
     handle_output(data)
 
 
