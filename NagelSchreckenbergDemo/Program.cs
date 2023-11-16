@@ -3,5 +3,5 @@ using NagelSchreckenbergDemo;
 using NagelSchreckenbergDemo.DirectedGraph;
 
 TrafficSimulation simulator  = new TrafficSimulation();
-simulator.Iterate(30);
-//simulator.RealIterate();
+// simulator.Iterate(30);
+simulator.RealIterate();

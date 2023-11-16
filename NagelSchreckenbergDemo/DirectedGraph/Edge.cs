@@ -62,5 +62,10 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             
             this.vehicles.Remove(vehicle);
         }
+
+        public override string ToString()
+        {
+            return string.Format("Edge {0}", id);
+        }
     }
 }
