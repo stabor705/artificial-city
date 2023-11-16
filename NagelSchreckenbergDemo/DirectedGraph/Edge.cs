@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace NagelSchreckenbergDemo.DirectedGraph
 {
@@ -35,16 +36,33 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             return index;
         }
 
-        public void MakeMoves()
+        public void Iterate(int time)
         {
             Vehicle[] tempVehicles = new Vehicle[this.vehicles.Count];
             this.vehicles.CopyTo(tempVehicles);
             
             foreach (Vehicle v in tempVehicles)
             {
-                v.SingleStep();
+                v.SingleStep(time);
                 if (v.toDelete)
                     this.RemoveVehicle(v);
+            }
+
+            if (startV.InEdges is null || startV.InEdges.Count == 0)
+                SpawnVehicle();
+        }
+
+        private void SpawnVehicle()
+        {
+            if (new Random().NextDouble() < 0.1)
+            {
+                int vehicleLength = 5;
+                if (this.cells.Skip(0).Take(vehicleLength).Sum() == 0 && TrafficSimulation.numVehicles < 3)
+                {
+                    TrafficSimulation.numVehicles++;
+                    Console.WriteLine("Spawning vehicle " + TrafficSimulation.numVehicles);
+                    this.vehicles.Add(new Vehicle(TrafficSimulation.numVehicles, vehicleLength, this));
+                }
             }
         }
 
