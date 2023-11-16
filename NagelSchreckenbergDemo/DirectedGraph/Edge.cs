@@ -12,8 +12,9 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         public Vertex endV;
         public List<Vehicle> vehicles;
 
-        public Edge(int length, Vertex startV, Vertex endV)
+        public Edge(int id, int length, Vertex startV, Vertex endV)
         {
+            this.id = id;
             this.length = length;
             this.cells = new int[length];
             this.startV = startV;
@@ -23,7 +24,6 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 
         public int GetIndexOfVehicle(int id)
         {   
-            Console.WriteLine("aa" + string.Join("", this.cells));
             return Array.IndexOf(this.cells, id);
         }
 

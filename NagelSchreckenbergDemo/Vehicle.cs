@@ -69,7 +69,7 @@ namespace NagelSchreckenbergDemo
         private void EvaluateVelocity()
         {
             int spaceInFront = SpaceInFront();
-            Console.WriteLine(spaceInFront);
+            Console.WriteLine("Space in front of vehicle " + this.id + ": " + spaceInFront);
             if (this.velocity < spaceInFront)
                 this.IncreaseVelocity();
             else
@@ -81,7 +81,7 @@ namespace NagelSchreckenbergDemo
 
         private void MakeMove()
         {
-            Console.WriteLine("velocity " + this.velocity + "edge: " + this.edge.id);
+            Console.WriteLine("vehicle: " + this.id + "velocity: " + this.velocity + "edge: " + this.edge.id);
             if (this.velocity == 0 && this.FrontPosition() + 1 == this.edge.cells.Length)
             {
                 toDelete = true;
@@ -101,12 +101,12 @@ namespace NagelSchreckenbergDemo
                 this.edge.cells[this.FrontPosition() + 1] = id;
             else if (nextEdge is not null)
             {
-                Console.WriteLine("no jest kurwa not null");
                 this.nextEdge.cells[this.FrontPosition() - this.edge.cells.Length + 1] = id;
             }
 
             int backPosition = this.BackPosition();
-            Console.WriteLine("aaaaa" + backPosition);
+            Console.WriteLine("back position: " + backPosition);
+            Console.WriteLine("current edge: " + string.Join("", this.edge.cells));
             if (backPosition != -1)
                 this.edge.cells[backPosition] = 0;
             else
@@ -141,12 +141,14 @@ namespace NagelSchreckenbergDemo
 
         private void ChangeEdge()
         {
+            Console.WriteLine("changing old edge: " + this.edge.id + " to next edge: " + this.nextEdge.id);
             this.edge.RemoveVehicle(this);
             this.nextEdge.AddVehicle(this);
 
             Edge? nextEdge = PickNewEdge();
             this.edge = this.nextEdge;
             this.nextEdge = nextEdge;
+            Console.WriteLine("change completed - current edge: " + this.edge.id + " and new selected next edge: " + this.nextEdge.id);
         }
     }
 }
