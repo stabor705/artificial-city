@@ -30,7 +30,7 @@ namespace NagelSchreckenbergDemo
 
         private void IncreaseVelocity()
         {
-            if (velocity < 7)
+            if (velocity < 6)
                 this.velocity++;
         }
 
@@ -53,9 +53,10 @@ namespace NagelSchreckenbergDemo
             while (index < this.edge.length && this.edge.cells[index] == 0)
                 index++;
             
-            if (nextEdge is not null && index == this.edge.length )
+            if (nextEdge is not null && index >= this.edge.length )
             {
-                int nextIndex = 0;
+                int nextIndex = index - this.edge.length;
+                Console.WriteLine("New edge " + id + " " + nextIndex);
                 while (nextIndex < this.nextEdge.length && this.nextEdge.cells[nextIndex] == 0)
                 {
                     nextIndex++;
@@ -79,26 +80,17 @@ namespace NagelSchreckenbergDemo
             this.RandomlyDecreaseVelocity();
         }
 
-        private void MakeMove()
-        {
-            Console.WriteLine("vehicle: " + this.id + " velocity: " + this.velocity + " edge: " + this.edge.id);
-            
-            MoveOneCell();
-            if (toDelete)
-                return;
-        }
-
         private void MoveOneCell()
-        {   
-            if (this.FrontPosition() >= this.edge.length + this.length - 1)
+        {
+            Console.WriteLine("vehicle: " + this.id + " front position: " + this.FrontPosition());
+            if (this.nextEdge is not null && this.FrontPosition() >= this.edge.length + this.length - 1)
             {
-                if (this.nextEdge is null)
-                    toDelete = true;
-                else
-                    ChangeEdge();
-
+                ChangeEdge();
                 return;
             }
+
+            if (this.velocity == 0)
+                return;
 
             if (this.FrontPosition() + 1 < this.edge.cells.Length)
                 this.edge.cells[this.FrontPosition() + 1] = id;
@@ -106,16 +98,27 @@ namespace NagelSchreckenbergDemo
                 this.nextEdge.cells[this.FrontPosition() - this.edge.cells.Length + 1] = id;
 
             int backPosition = this.BackPosition(); 
-            Console.WriteLine("back position: " + backPosition);
-            Console.WriteLine("current edge: " + this.edge.id + " " + string.Join("", this.edge.cells));
+            // Console.WriteLine("current edge: " + this.edge.id + " " + string.Join("", this.edge.cells));
             if (backPosition != -1)
                 this.edge.cells[backPosition] = 0;
+
+            if (this.nextEdge is null && this.FrontPosition() >= this.edge.length - 1)
+            {
+                toDelete = true;
+                return;
+            }
         }
 
-        public void SingleStep()
+        public void SingleStep(int time)
         {
-            MakeMove();
-            EvaluateVelocity();
+            if ((this.velocity * time % 60) == 0)
+            {
+                EvaluateVelocity();
+                Console.WriteLine("vehicle: " + this.id + " velocity: " + this.velocity + " edge: " + this.edge.id);
+                MoveOneCell();
+                EvaluateVelocity();
+            }
+
         }
 
         private int BackPosition()
