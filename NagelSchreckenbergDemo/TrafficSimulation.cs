@@ -47,7 +47,7 @@ namespace NagelSchreckenbergDemo
 
                 foreach (var vehicle in vehicles)
                 {
-                    if (((vehicle.velocity * time) % 60) == 0)
+                    if ((vehicle.velocity * time % 60) == 0)
                     {
                         vehicle.SingleStep();
                         if (vehicle.toDelete)
@@ -55,7 +55,7 @@ namespace NagelSchreckenbergDemo
                         this.PrintState();
                     }
                 }
-                Thread.Sleep(10);
+                Thread.Sleep(3);
             }
         }
 

@@ -49,20 +49,20 @@ namespace NagelSchreckenbergDemo
         {
             int index = this.FrontPosition() + 1;
             int start = index;
-
-            while (index < this.edge.cells.Length && this.edge.cells[index] == 0)
+            
+            while (index < this.edge.length && this.edge.cells[index] == 0)
                 index++;
-
-            if (index == this.edge.cells.Length && nextEdge is not null)
+            
+            if (nextEdge is not null && index == this.edge.length )
             {
                 int nextIndex = 0;
-                while (nextIndex < this.nextEdge.cells.Length && this.nextEdge.cells[nextIndex] == 0)
+                while (nextIndex < this.nextEdge.length && this.nextEdge.cells[nextIndex] == 0)
                 {
                     nextIndex++;
                     index++;
                 }
             }
-
+            
             return index - start;
         }
 
@@ -81,42 +81,41 @@ namespace NagelSchreckenbergDemo
 
         private void MakeMove()
         {
-            Console.WriteLine("vehicle: " + this.id + "velocity: " + this.velocity + "edge: " + this.edge.id);
-            if (this.velocity == 0 && this.FrontPosition() + 1 == this.edge.cells.Length)
-            {
-                toDelete = true;
+            Console.WriteLine("vehicle: " + this.id + " velocity: " + this.velocity + " edge: " + this.edge.id);
+            
+            MoveOneCell();
+            if (toDelete)
                 return;
-            }
-            for (int i = 0; i < this.velocity; i++)
-            {
-                MoveOneCell();
-                if (toDelete)
-                    return;
-            }
         }
 
         private void MoveOneCell()
-        {
+        {   
+            if (this.FrontPosition() >= this.edge.length + this.length - 1)
+            {
+                if (this.nextEdge is null)
+                    toDelete = true;
+                else
+                    ChangeEdge();
+
+                return;
+            }
+
             if (this.FrontPosition() + 1 < this.edge.cells.Length)
                 this.edge.cells[this.FrontPosition() + 1] = id;
             else if (nextEdge is not null)
-            {
                 this.nextEdge.cells[this.FrontPosition() - this.edge.cells.Length + 1] = id;
-            }
 
-            int backPosition = this.BackPosition();
+            int backPosition = this.BackPosition(); 
             Console.WriteLine("back position: " + backPosition);
-            Console.WriteLine("current edge: " + string.Join("", this.edge.cells));
+            Console.WriteLine("current edge: " + this.edge.id + " " + string.Join("", this.edge.cells));
             if (backPosition != -1)
                 this.edge.cells[backPosition] = 0;
-            else
-                ChangeEdge();
         }
 
         public void SingleStep()
         {
-            EvaluateVelocity();
             MakeMove();
+            EvaluateVelocity();
         }
 
         private int BackPosition()
@@ -126,6 +125,9 @@ namespace NagelSchreckenbergDemo
 
         private int FrontPosition()
         {
+            if (this.edge.GetIndexOfVehicle(this.id) == -1)
+                return this.edge.length + this.length - 1;
+
             return this.edge.GetIndexOfVehicle(this.id) + this.length - 1;
         }
 
@@ -141,14 +143,19 @@ namespace NagelSchreckenbergDemo
 
         private void ChangeEdge()
         {
-            Console.WriteLine("changing old edge: " + this.edge.id + " to next edge: " + this.nextEdge.id);
+            Console.WriteLine("changing old edge: " + this.edge + " to next edge: " + this.nextEdge);
             this.edge.RemoveVehicle(this);
             this.nextEdge.AddVehicle(this);
 
-            Edge? nextEdge = PickNewEdge();
             this.edge = this.nextEdge;
-            this.nextEdge = nextEdge;
-            Console.WriteLine("change completed - current edge: " + this.edge.id + " and new selected next edge: " + this.nextEdge.id);
+            Edge? nE = PickNewEdge();
+            this.nextEdge = nE;
+            Console.WriteLine("change completed - current edge: " + this.edge + " and new selected next edge: " + this.nextEdge);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Vehicle {0}: length {1}, velocity: {2} on edge: {3}", id, length, velocity, edge);
         }
     }
 }
