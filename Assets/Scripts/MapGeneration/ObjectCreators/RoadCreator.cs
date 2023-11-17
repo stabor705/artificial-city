@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEditor;
+using System.Linq;
 
 public class RoadCreator : MonoBehaviour {
     public GameObject roadPrefab;
@@ -25,6 +25,10 @@ public class RoadCreator : MonoBehaviour {
         var rightLane = AddCarSimulation(roadLength, road);
         rightLane.transform.Translate(new Vector3(0, -0.250f));
         rightLane.name = "Right Lane Car Simulation";
+        var automata = rightLane.GetComponent<CellAutomataStateManager>();
+        var height = Math.Abs(automata.cells.First().transform.position.y - automata.cells.Last().transform.position.y);
+        rightLane.transform.Translate(new Vector3(-height, 0));
+        rightLane.transform.Rotate(new Vector3(0, 180));
 
         return road;
     }
