@@ -25,4 +25,17 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.InEdges = new List<Edge>();
         }
     }
+
+    public class Crossing : Vertex {
+        public Crossing(int id) : base(id)
+        {
+            
+        }
+    }
+    
+    public class TrafficLights : Vertex {
+        public TrafficLights(int id) : base(id) {
+            
+        }
+    }
 }
