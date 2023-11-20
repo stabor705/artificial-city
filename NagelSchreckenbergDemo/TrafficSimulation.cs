@@ -17,16 +17,17 @@ namespace NagelSchreckenbergDemo
 
         private void Initialize()
         {
-            //             5*
-            //             /\
-            //           5  |4
-            //     0   /<--\|  2
-            //  *---->*---->*---->*
-            //  0     1  1 2|     3
-            //              |3
-            //             \/
-            //             4*
+            //                   6*
+            //                   /|\
+            //                 6  |5
+            //     0     1   /<--\|  3
+            //  *---->*---->*---->*---->*
+            //  0     1     2  2 3|     4
+            //                    |4
+            //                   \|/
+            //                   5*
 
+            roadSystem.AddVertex();
             roadSystem.AddVertex();
             roadSystem.AddVertex();
             roadSystem.AddVertex();
@@ -37,9 +38,10 @@ namespace NagelSchreckenbergDemo
             roadSystem.AddEdge(100, 0, 1);
             roadSystem.AddEdge(100, 1, 2);
             roadSystem.AddEdge(100, 2, 3);
-            roadSystem.AddEdge(100, 2, 4);
-            roadSystem.AddEdge(100, 2, 5);
-            roadSystem.AddEdge(100, 2, 1);
+            roadSystem.AddEdge(100, 3, 4);
+            roadSystem.AddEdge(100, 3, 5);
+            roadSystem.AddEdge(100, 3, 6);
+            roadSystem.AddEdge(100, 3, 2);
         }
 
         public void Run()
@@ -55,7 +57,7 @@ namespace NagelSchreckenbergDemo
                     edge.Iterate(time);
 
                 PrintState();
-                Thread.Sleep(10);
+                Thread.Sleep(100);
             }
         }
 

@@ -48,8 +48,11 @@ namespace NagelSchreckenbergDemo.DirectedGraph
                     this.RemoveVehicle(v);
             }
 
-            // TODO it's not the best option when we want to have all bi-directional roads in one Graph
-            if (startV.InEdges is null || startV.InEdges.Count == 0)
+            if (startV.OutEdges.Count == 1 && // because we want to get out of that vertex and we don't want to end up on crossroads
+                (startV.InEdges is null ||
+                startV.InEdges.Count == 0 || // it may be uni-directional road
+                (startV.InEdges.Count == 1 && startV.InEdges.First().startV == this.endV)) // or it can be bi-directional
+               )
                 SpawnVehicle();
         }
 
