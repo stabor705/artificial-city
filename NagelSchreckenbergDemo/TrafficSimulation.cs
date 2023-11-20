@@ -6,7 +6,6 @@ namespace NagelSchreckenbergDemo
     public class TrafficSimulation
     {
         private DirectedGraph.DirectedGraph roadSystem;
-        private List<Vehicle> vehicles;
         public static int numVehicles = 0;
 
         public TrafficSimulation()
