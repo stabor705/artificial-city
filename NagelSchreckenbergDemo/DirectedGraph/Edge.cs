@@ -48,6 +48,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
                     this.RemoveVehicle(v);
             }
 
+            // TODO it's not the best option when we want to have all bi-directional roads in one Graph
             if (startV.InEdges is null || startV.InEdges.Count == 0)
                 SpawnVehicle();
         }

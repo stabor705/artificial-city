@@ -56,7 +56,7 @@ namespace NagelSchreckenbergDemo
             if (nextEdge is not null && index >= this.edge.length )
             {
                 int nextIndex = index - this.edge.length;
-                Console.WriteLine("New edge " + id + " " + nextIndex);
+                // Console.WriteLine("New edge " + id + " " + nextIndex);
                 while (nextIndex < this.nextEdge.length && this.nextEdge.cells[nextIndex] == 0)
                 {
                     nextIndex++;
@@ -70,7 +70,7 @@ namespace NagelSchreckenbergDemo
         private void EvaluateVelocity()
         {
             int spaceInFront = SpaceInFront();
-            Console.WriteLine("Space in front of vehicle " + this.id + ": " + spaceInFront);
+            // Console.WriteLine("Space in front of vehicle " + this.id + ": " + spaceInFront);
             if (this.velocity < spaceInFront)
                 this.IncreaseVelocity();
             else
@@ -82,7 +82,7 @@ namespace NagelSchreckenbergDemo
 
         private void MoveOneCell()
         {
-            Console.WriteLine("vehicle: " + this.id + " front position: " + this.FrontPosition());
+            // Console.WriteLine("vehicle: " + this.id + " front position: " + this.FrontPosition());
             if (this.nextEdge is not null && this.FrontPosition() >= this.edge.length + this.length - 1)
             {
                 ChangeEdge();
@@ -114,7 +114,7 @@ namespace NagelSchreckenbergDemo
             if ((this.velocity * time % 60) == 0)
             {
                 EvaluateVelocity();
-                Console.WriteLine("vehicle: " + this.id + " velocity: " + this.velocity + " edge: " + this.edge.id);
+                // Console.WriteLine("vehicle: " + this.id + " velocity: " + this.velocity + " edge: " + this.edge.id);
                 MoveOneCell();
                 EvaluateVelocity();
             }
@@ -139,8 +139,11 @@ namespace NagelSchreckenbergDemo
             List<Edge>? candidates = this.edge.endV.OutEdges;
             if (candidates is null || candidates.Count == 0)
                 return null;
+            candidates.RemoveAll(edge => edge.endV == this.edge.startV);
+            // Console.WriteLine("Candidates for vehicle " + this.id + ": " + string.Join("", edge.id));
 
             int candidateIndex = new Random().Next(0, candidates.Count);
+            Console.WriteLine("Selected next edge index: " +  candidateIndex);
             return candidates[candidateIndex];
         }
 
