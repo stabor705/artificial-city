@@ -137,15 +137,15 @@ namespace NagelSchreckenbergDemo
         private Edge? PickNewEdge()
         {
             List<Edge>? candidates = this.edge.endV.OutEdges;
-            if (candidates is null || candidates.Count == 0)
-                return null;
-            candidates.RemoveAll(edge => edge.endV == this.edge.startV);
+                candidates.RemoveAll(edge => edge.endV == this.edge.startV);
+                if (candidates is null || candidates.Count == 0)
+                    return null;
             // Console.WriteLine("Candidates for vehicle " + this.id + ": " + string.Join("", edge.id));
 
             int candidateIndex = new Random().Next(0, candidates.Count);
-            Console.WriteLine("Selected next edge index: " +  candidateIndex);
-            return candidates[candidateIndex];
-        }
+                Console.WriteLine("Selected next edge index: " +  candidateIndex);
+                return candidates[candidateIndex];
+            }
 
         private void ChangeEdge()
         {

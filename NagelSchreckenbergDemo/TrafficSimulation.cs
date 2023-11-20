@@ -17,31 +17,37 @@ namespace NagelSchreckenbergDemo
 
         private void Initialize()
         {
-            //                   6*
-            //                   /|\
-            //                 6  |5
-            //     0     1   /<--\|  3
-            //  *---->*---->*---->*---->*
-            //  0     1     2  2 3|     4
-            //                    |4
-            //                   \|/
-            //                   5*
+            //                    *5
+            //                   | \      
+            //                   | |
+            //                  9| |8
+            //                   | |
+            //     7     6     5 \ | 4
+            //   <---- <---- <---- <----
+            //  *0    *1    *2    *3    *4
+            //   ----> ----> ----> ---->
+            //     0     1     2 | \ 3    
+            //                   | |
+            //                 10| |11
+            //                   | |
+            //                   \ |
+            //                    *6
 
-            roadSystem.AddVertex();
-            roadSystem.AddVertex();
-            roadSystem.AddVertex();
-            roadSystem.AddVertex();
-            roadSystem.AddVertex();
-            roadSystem.AddVertex();
-            roadSystem.AddVertex();
+            for (int i = 0; i < 7; i++)
+                roadSystem.AddVertex();
 
-            roadSystem.AddEdge(100, 0, 1);
-            roadSystem.AddEdge(100, 1, 2);
-            roadSystem.AddEdge(100, 2, 3);
-            roadSystem.AddEdge(100, 3, 4);
-            roadSystem.AddEdge(100, 3, 5);
-            roadSystem.AddEdge(100, 3, 6);
-            roadSystem.AddEdge(100, 3, 2);
+            roadSystem.AddEdge(20, 0, 1);
+            roadSystem.AddEdge(20, 1, 2);
+            roadSystem.AddEdge(20, 2, 3);
+            roadSystem.AddEdge(20, 3, 4);
+            roadSystem.AddEdge(20, 4, 3);
+            roadSystem.AddEdge(20, 3, 2);
+            roadSystem.AddEdge(20, 2, 1);
+            roadSystem.AddEdge(20, 1, 0);
+            roadSystem.AddEdge(20, 3, 5);
+            roadSystem.AddEdge(20, 5, 3);
+            roadSystem.AddEdge(20, 3, 6);
+            roadSystem.AddEdge(20, 6, 3);
         }
 
         public void Run()
@@ -80,12 +86,12 @@ namespace NagelSchreckenbergDemo
                 Console.Write("Vertex: " + vertex.id + " inbound edges from vertices: ");
                 foreach (var inEdge in vertex.InEdges)
                 {
-                    Console.Write(inEdge.startV.id + " ");
+                    Console.Write(inEdge.startV.id + "(" + inEdge.id + ") ");
                 }
                 Console.Write("outbound edges to vertices: ");
-                foreach (var inEdge in vertex.OutEdges)
+                foreach (var outEdge in vertex.OutEdges)
                 {
-                    Console.Write(inEdge.endV.id + " ");
+                    Console.Write(outEdge.endV.id + "(" + outEdge.id + ") ");
                 }
                 Console.WriteLine();
             }
