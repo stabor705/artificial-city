@@ -25,7 +25,6 @@ namespace NagelSchreckenbergDemo
                 edge.cells[i] = id;
 
             this.nextEdge = this.PickNewEdge();
-            edge.AddVehicle(this);
         }
 
         private void IncreaseVelocity()
@@ -105,6 +104,7 @@ namespace NagelSchreckenbergDemo
             if (this.nextEdge is null && this.FrontPosition() >= this.edge.length - 1)
             {
                 toDelete = true;
+                // Console.WriteLine("Set toDelete true when: FrontPosition() = " + this.FrontPosition() + " and SpaceInFront() = " + this.SpaceInFront());
                 return;
             }
         }
@@ -116,7 +116,6 @@ namespace NagelSchreckenbergDemo
                 EvaluateVelocity();
                 // Console.WriteLine("vehicle: " + this.id + " velocity: " + this.velocity + " edge: " + this.edge.id);
                 MoveOneCell();
-                EvaluateVelocity();
             }
 
         }
@@ -137,15 +136,15 @@ namespace NagelSchreckenbergDemo
         private Edge? PickNewEdge()
         {
             List<Edge>? candidates = this.edge.endV.OutEdges;
-                candidates.RemoveAll(edge => edge.endV == this.edge.startV);
-                if (candidates is null || candidates.Count == 0)
-                    return null;
+            candidates.RemoveAll(edge => edge.endV == this.edge.startV);
+            if (candidates is null || candidates.Count == 0)
+                return null;
             // Console.WriteLine("Candidates for vehicle " + this.id + ": " + string.Join("", edge.id));
 
             int candidateIndex = new Random().Next(0, candidates.Count);
-                Console.WriteLine("Selected next edge index: " +  candidateIndex);
-                return candidates[candidateIndex];
-            }
+            Console.WriteLine("Selected next edge index: " +  candidateIndex);
+            return candidates[candidateIndex];
+        }
 
         private void ChangeEdge()
         {

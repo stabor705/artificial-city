@@ -40,12 +40,12 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         {
             Vehicle[] tempVehicles = new Vehicle[this.vehicles.Count];
             this.vehicles.CopyTo(tempVehicles);
-            
+
             foreach (Vehicle v in tempVehicles)
             {
-                v.SingleStep(time);
                 if (v.toDelete)
                     this.RemoveVehicle(v);
+                v.SingleStep(time);
             }
 
             if (startV.OutEdges.Count == 1 && // because we want to get out of that vertex and we don't want to end up on crossroads
@@ -65,7 +65,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
                 {
                     TrafficSimulation.numVehicles++;
                     Console.WriteLine("Spawning vehicle " + TrafficSimulation.numVehicles);
-                    this.vehicles.Add(new Vehicle(TrafficSimulation.numVehicles, vehicleLength, this));
+                    this.AddVehicle(new Vehicle(TrafficSimulation.numVehicles, vehicleLength, this));
                 }
             }
         }
@@ -77,7 +77,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         
         public void RemoveVehicle(Vehicle vehicle)
         {
-            Console.WriteLine("removing vehicle: " + vehicle.id);
+            Console.WriteLine("removing vehicle: " + vehicle.id + " from edge: " + this);
             for (int i = 0; i < this.cells.Length; i++)
                 if (cells[i] == vehicle.id)
                     cells[i] = 0;
