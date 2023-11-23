@@ -1,0 +1,3 @@
+[submodule "OSMDataScript"]
+	path = OSMDataScript
+	url = https://github.com/kacienk/OSMDataScript.git
