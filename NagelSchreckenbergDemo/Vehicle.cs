@@ -16,9 +16,10 @@ namespace NagelSchreckenbergDemo
         public int velocity = 0;
         public bool toDelete = false;
 
-        public Vehicle(int id, int length, Edge edge)
+        public Vehicle(int length, Edge edge)
         {
-            this.id = id;
+            this.id = TrafficSimulation.nextVehicleIndex;
+            TrafficSimulation.nextVehicleIndex++;
             this.length = length;
             this.edge = edge;
             for (int i = 0; i < length; i++)

@@ -45,6 +45,8 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             {
                 if (v.toDelete)
                     this.RemoveVehicle(v);
+                    TrafficSimulation.numVehicles--;
+                }
                 v.SingleStep(time);
             }
 
@@ -65,7 +67,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
                 {
                     TrafficSimulation.numVehicles++;
                     Console.WriteLine("Spawning vehicle " + TrafficSimulation.numVehicles);
-                    this.AddVehicle(new Vehicle(TrafficSimulation.numVehicles, vehicleLength, this));
+                    this.vehicles.Add(new Vehicle(vehicleLength, this));
                 }
             }
         }

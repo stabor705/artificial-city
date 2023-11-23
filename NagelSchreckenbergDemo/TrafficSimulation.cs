@@ -7,6 +7,7 @@ namespace NagelSchreckenbergDemo
     {
         private DirectedGraph.DirectedGraph roadSystem;
         public static int numVehicles = 0;
+        public static int nextVehicleIndex = 1;
 
         public TrafficSimulation()
         {
