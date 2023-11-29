@@ -43,7 +43,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 
             foreach (Vehicle v in tempVehicles)
             {
-                if (v.toDelete)
+                if (v.toDelete) {
                     this.RemoveVehicle(v);
                     TrafficSimulation.numVehicles--;
                 }
