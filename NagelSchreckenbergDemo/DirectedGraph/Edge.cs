@@ -43,7 +43,10 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 
             foreach (Vehicle v in tempVehicles)
             {
-                if (v.toDelete) {
+                if (v.toDeleteCountdown > 0)
+                    v.toDeleteCountdown--;
+                if (v.toDeleteCountdown == 0)
+                {
                     this.RemoveVehicle(v);
                     TrafficSimulation.numVehicles--;
                 }

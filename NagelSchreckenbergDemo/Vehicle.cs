@@ -14,7 +14,7 @@ namespace NagelSchreckenbergDemo
         public Edge? nextEdge;
 
         public int velocity = 0;
-        public bool toDelete = false;
+        public int toDeleteCountdown = -1;
 
         public Vehicle(int length, Edge edge)
         {
@@ -104,8 +104,7 @@ namespace NagelSchreckenbergDemo
 
             if (this.nextEdge is null && this.FrontPosition() >= this.edge.length - 1)
             {
-                toDelete = true;
-                // Console.WriteLine("Set toDelete true when: FrontPosition() = " + this.FrontPosition() + " and SpaceInFront() = " + this.SpaceInFront());
+                toDeleteCountdown = 30;
                 return;
             }
         }
