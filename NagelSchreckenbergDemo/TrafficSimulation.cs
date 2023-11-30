@@ -34,8 +34,13 @@ namespace NagelSchreckenbergDemo
             //                   \ |
             //                    *6
 
-            for (int i = 0; i < 7; i++)
-                roadSystem.AddVertex();
+            roadSystem.AddVertex(0, 1); // vertex 0
+            roadSystem.AddTrafficLights(1, 1); // vertex 1
+            roadSystem.AddVertex(2, 1); // vertex 2
+            roadSystem.AddVertex(3, 1); // vertex 3
+            roadSystem.AddVertex(4, 1); // vertex 4
+            roadSystem.AddVertex(3, 2); // vertex 5
+            roadSystem.AddVertex(3, 0); // vertex 6
 
             roadSystem.AddEdge(20, 0, 1);
             roadSystem.AddEdge(20, 1, 2);

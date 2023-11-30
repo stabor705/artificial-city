@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace NagelSchreckenbergDemo.DirectedGraph
 {
@@ -36,19 +37,30 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             }
         }
 
-        public void AddVertex()
+        public void AddVertex(double lng, double lat)
         {
-            this.vertices.Add(new Vertex(this.numVertices));
+            this.vertices.Add(new Vertex(this.numVertices, lng, lat));
             this.numVertices++;
         }
 
-        public void AddEdge(int length, int startVertexId, int endVertedId)
+        public void AddTrafficLights(double lng, double lat)
         {
-            Edge edge = new Edge(this.numEdges, length, vertices[startVertexId], vertices[endVertedId]);
+            this.vertices.Add(new TrafficLights(this.numVertices, lng, lat));
+            this.numVertices++;
+        }
+
+        public void AddEdge(int length, int startVertexId, int endVertexId)
+        {
+            Edge edge = new Edge(this.numEdges, length, vertices[startVertexId], vertices[endVertexId]);
             this.edges.Add(edge);
             this.numEdges++;
             this.vertices[startVertexId].OutEdges.Add(edge);
-            this.vertices[endVertedId].InEdges.Add(edge);
+            this.vertices[endVertexId].InEdges.Add(edge);
+
+            if (this.vertices[endVertexId] is TrafficLights tl)
+            {
+                tl.AddTrafficLights(edge);
+            }
         }
     }
 }
