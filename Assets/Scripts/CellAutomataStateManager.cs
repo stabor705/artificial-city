@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CellAutomataStateManager : MonoBehaviour {
     public List<CellState> cells;
+    public int edge;
 
     public void refreshCellList() {
         foreach (Transform child in transform) {
