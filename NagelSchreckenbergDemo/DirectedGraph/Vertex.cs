@@ -1,10 +1,42 @@
 ﻿using System;
+using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
 
 namespace NagelSchreckenbergDemo.DirectedGraph
 {
     public class Vertex
     {
+        public static class VertexState
+        {
+            // UInt16 representation of state of Vertex
+            // unused x 7
+            // Major road straight
+            // Major road right
+            // Major road left
+            // Minor road right
+            // Minor road straight
+            // Minor road left
+            // unused x 2
+            // Free
+            public const ushort MAJOR_STRAIGHT = 256;
+            public const ushort MAJOR_RIGHT = 128;
+            public const ushort MAJOR_LEFT = 64;
+            public const ushort MINOR_RIGHT = 32;
+            public const ushort MINOR_STRAIGH = 16;
+            public const ushort MINOR_LEFT = 8;
+
+            public static ushort SetState(ushort previousState, ushort stateToSet)
+            {
+                return (ushort)(previousState | stateToSet);
+            }
+
+            public static ushort UnsetState(ushort previousState, ushort stateToUnset)
+            {
+                return (ushort)(previousState & ~stateToUnset);
+            }
+        }
+
+        public ushort state = 0;
         public int id;
 
         public double lng; // x

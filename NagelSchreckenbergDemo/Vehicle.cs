@@ -62,6 +62,9 @@ namespace NagelSchreckenbergDemo
             while (index < this.edge.length && this.edge.cells[index] == 0)
                 index++;
 
+            /*
+            TODO Here goes the logic for setting the state for current edge's end Vertex
+            */
             if (nextEdge is not null && index >= this.edge.length)
             {
                 int nextIndex = index - this.edge.length;

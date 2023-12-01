@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace NagelSchreckenbergDemo
 {
-    public class CalculateDirections
+    public static class CalculateDirections
     {
         private static double CrossProduct(Edge currentEdge, Edge nextEdge)
         {

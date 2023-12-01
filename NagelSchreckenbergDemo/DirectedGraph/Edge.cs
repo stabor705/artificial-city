@@ -6,6 +6,11 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 {
     public class Edge
     {
+        public enum Priority {
+            MAJOR,
+            MINOR
+        }
+        public Priority priority;
         public int id;
         public int length;
         public int[] cells;
@@ -14,7 +19,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         public Vertex endV;
         public List<Vehicle> vehicles;
 
-        public Edge(int id, int length, Vertex startV, Vertex endV)
+        public Edge(int id, int length, Vertex startV, Vertex endV, Priority priority = Priority.MINOR)
         {
             this.id = id;
             this.length = length;
@@ -22,6 +27,14 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.startV = startV;
             this.endV = endV;
             this.vehicles = new List<Vehicle>();
+            this.priority = priority;
+        }
+
+        public void DistanceToChangeVertexState()
+        {
+            /*
+            TODO set distances or sth idk
+            */
         }
 
         public int GetIndexOfVehicle(int id)
