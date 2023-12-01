@@ -7,11 +7,20 @@ namespace NagelSchreckenbergDemo
 {
     public class Vehicle
     {
+        public enum Direction
+        {
+            LEFT,
+            STRAIGHT,
+            RIGHT,
+            UNKNOWN
+        }
+
         public int id;
         public int length;
 
         public Edge? edge;
         public Edge? nextEdge;
+        public Direction nextEdgeDirection;
 
         public int velocity = 0;
         public int toDeleteCountdown = -1;
@@ -49,11 +58,11 @@ namespace NagelSchreckenbergDemo
         {
             int index = this.FrontPosition() + 1;
             int start = index;
-            
+
             while (index < this.edge.length && this.edge.cells[index] == 0)
                 index++;
-            
-            if (nextEdge is not null && index >= this.edge.length )
+
+            if (nextEdge is not null && index >= this.edge.length)
             {
                 int nextIndex = index - this.edge.length;
                 // Console.WriteLine("New edge " + id + " " + nextIndex);
@@ -63,7 +72,7 @@ namespace NagelSchreckenbergDemo
                     index++;
                 }
             }
-            
+
             return index - start;
         }
 
@@ -97,7 +106,7 @@ namespace NagelSchreckenbergDemo
             else if (nextEdge is not null)
                 this.nextEdge.cells[this.FrontPosition() - this.edge.cells.Length + 1] = id;
 
-            int backPosition = this.BackPosition(); 
+            int backPosition = this.BackPosition();
             // Console.WriteLine("current edge: " + this.edge.id + " " + string.Join("", this.edge.cells));
             if (backPosition != -1)
                 this.edge.cells[backPosition] = 0;
@@ -133,6 +142,43 @@ namespace NagelSchreckenbergDemo
             return this.edge.GetIndexOfVehicle(this.id) + this.length - 1;
         }
 
+        private Direction determineDirection(List<Edge> candidates, Edge pickedEdge)
+        {
+            if (candidates.Count == 1)
+            {
+                return Direction.STRAIGHT;
+            }
+            else if (candidates.Count == 2)
+            {
+                int index = candidates.OrderBy(
+                    e => -CalculateDirections.GetAngle(edge, e)
+                    ).ToList().IndexOf(pickedEdge);
+                return index switch
+                {
+                    0 => Direction.LEFT,
+                    1 => Direction.RIGHT,
+                    _ => Direction.UNKNOWN,
+                };
+            }
+            else if (candidates.Count == 3)
+            {
+                int index = candidates.OrderBy(
+                    e => -CalculateDirections.GetAngle(edge, e)
+                    ).ToList().IndexOf(pickedEdge);
+                return index switch
+                {
+                    0 => Direction.LEFT,
+                    1 => Direction.STRAIGHT,
+                    2 => Direction.RIGHT,
+                    _ => Direction.UNKNOWN,
+                };
+            }
+            else
+            {
+                return Direction.UNKNOWN;
+            }
+        }
+
         private Edge? PickNewEdge()
         {
             List<Edge>? candidates = new List<Edge>(this.edge.endV.OutEdges);
@@ -142,8 +188,11 @@ namespace NagelSchreckenbergDemo
             // Console.WriteLine("Candidates for vehicle " + this.id + ": " + string.Join("", edge.id));
 
             int candidateIndex = new Random().Next(0, candidates.Count);
+            Edge pickedEdge = candidates[candidateIndex];
+            this.nextEdgeDirection = determineDirection(candidates, pickedEdge);
             Console.WriteLine("Selected next edge id: " + candidates[candidateIndex].id);
-            return candidates[candidateIndex];
+            Console.WriteLine("Next direction is: " + this.nextEdgeDirection);
+            return pickedEdge;
         }
 
         private void ChangeEdge()

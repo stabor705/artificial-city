@@ -1,5 +1,6 @@
 using NagelSchreckenbergDemo;
 using System;
+using System.Diagnostics;
 
 namespace NagelSchreckenbergDemo
 {
@@ -35,7 +36,7 @@ namespace NagelSchreckenbergDemo
             //                    *6
 
             roadSystem.AddVertex(0, 1); // vertex 0
-            roadSystem.AddTrafficLights(1, 1); // vertex 1
+            roadSystem.AddCrossing(1, 1); // vertex 1
             roadSystem.AddVertex(2, 1); // vertex 2
             roadSystem.AddVertex(3, 1); // vertex 3
             roadSystem.AddVertex(4, 1); // vertex 4
@@ -56,7 +57,7 @@ namespace NagelSchreckenbergDemo
             roadSystem.AddEdge(20, 6, 3);
         }
 
-        public void Run()
+        public void Run(bool debug = true)
         {
             int time = 0;
             while (true)
@@ -65,21 +66,37 @@ namespace NagelSchreckenbergDemo
                 if (time >= 61)
                     time = 1;
 
-                foreach (var edge in roadSystem.edges)
-                    edge.Iterate(time);
+                roadSystem.vertices.ForEach(vertex => vertex.Iterate());
+                roadSystem.edges.ForEach(edge => edge.Iterate(time));
 
-                PrintState();
-                Thread.Sleep(100);
+                // PrintState(debug);
+                Thread.Sleep(10);
             }
         }
 
-        public void PrintState()
+        public void PrintState(bool debug)
         {
             Console.WriteLine("-----------------------------------------------------------------------");
             foreach (var edge in roadSystem.edges)
             {
                 Console.WriteLine("Edge: " + edge.id + " starts from Vertex: " + edge.startV.id + " ends with Vertex: " + edge.endV.id);
-                Console.WriteLine(string.Join("", edge.cells));
+                if (debug)
+                {
+                    Console.WriteLine(string.Join("", edge.cells));
+                }
+                else
+                {
+                    Console.WriteLine(string.Join("", edge.cells.Select(cell =>
+                    {
+                        if (cell == -1)
+                            return '=';
+                        else if (cell == 0)
+                            return '_';
+                        else
+                            return '#';
+                    }).ToArray()));
+                }
+
             }
             Console.WriteLine("-----------------------------------------------------------------------");
         }

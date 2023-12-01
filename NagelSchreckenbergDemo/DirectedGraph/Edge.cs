@@ -48,6 +48,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
                     v.toDeleteCountdown--;
                 if (v.toDeleteCountdown == 0)
                 {
+                    v.toDeleteCountdown = -1;
                     this.RemoveVehicle(v);
                     TrafficSimulation.numVehicles--;
                 }

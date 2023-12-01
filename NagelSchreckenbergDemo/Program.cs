@@ -2,6 +2,8 @@
 using NagelSchreckenbergDemo;
 using NagelSchreckenbergDemo.DirectedGraph;
 
+const bool DEBUG = false;
+
 TrafficSimulation simulator  = new TrafficSimulation();
 simulator.PrintGraph();
-simulator.Run();
+simulator.Run(DEBUG);

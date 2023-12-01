@@ -23,16 +23,73 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.OutEdges = new List<Edge>();
             this.InEdges = new List<Edge>();
         }
-    }
 
-    public class Crossing : Vertex {
-        public Crossing(int id, double lng, double lat) : base(id, lng, lat)
+        virtual public void Iterate()
         {
-            
+
         }
     }
-    
-    public class TrafficLights : Vertex {
+
+    public class Crossing : Vertex
+    {
+        public bool pedestriansCrossing = false; // po chuj mi to
+        const int MIN_COUNTDOWN = 240;
+        const int COUNTDOWN_VARIANCE = 120;
+        const double PROBABILITY = 0.03;
+
+        public int countdown = -1;
+        public Crossing(int id, double lng, double lat) : base(id, lng, lat)
+        {
+
+        }
+
+        public void PedestriansCrossing()
+        {
+            bool safeToCross = this.InEdges.All(edge =>
+            {
+                var lastCells = edge.cells.TakeLast(Math.Min(edge.length, 10));
+                return lastCells.All(cell => cell == 0);
+            });
+            if (safeToCross)
+            {
+                this.InEdges.ForEach(edge => edge.cells[edge.length - 1] = -1);
+                this.pedestriansCrossing = true;
+                this.countdown = new Random().Next(COUNTDOWN_VARIANCE) + MIN_COUNTDOWN;
+            }
+        }
+
+        public void PedestriansCrossingEnd()
+        {
+            if (!pedestriansCrossing) return; // po chuj mi to
+
+            foreach (Edge inEdge in this.InEdges)
+            {
+                inEdge.cells[inEdge.length - 1] = 0;
+            }
+            this.pedestriansCrossing = false;
+            this.countdown = -1;
+        }
+
+        public override void Iterate()
+        {
+            if (this.countdown == -1)
+            {
+                if (new Random().NextDouble() < PROBABILITY)
+                    PedestriansCrossing();
+            }
+            else if (this.countdown == 0)
+            {
+                PedestriansCrossingEnd();
+            }
+            else
+            {
+                countdown--;
+            }
+        }
+    }
+
+    public class TrafficLights : Vertex
+    {
         public enum LightState
         {
             GREEN,

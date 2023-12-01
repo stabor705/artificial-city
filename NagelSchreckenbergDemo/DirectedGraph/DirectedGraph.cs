@@ -49,6 +49,12 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.numVertices++;
         }
 
+        public void AddCrossing(double lng, double lat)
+        {
+            this.vertices.Add(new Crossing(this.numVertices, lng, lat));
+            this.numVertices++;
+        }
+
         public void AddEdge(int length, int startVertexId, int endVertexId)
         {
             Edge edge = new Edge(this.numEdges, length, vertices[startVertexId], vertices[endVertexId]);
