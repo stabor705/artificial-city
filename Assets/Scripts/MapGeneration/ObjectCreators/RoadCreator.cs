@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEditor;
+using VectorShapes;
 
 public class RoadCreator : MonoBehaviour {
     public GameObject roadPrefab;
@@ -9,25 +10,44 @@ public class RoadCreator : MonoBehaviour {
 
     private static float cellDiameter = 0.1f;
     private static float cellGap = 0.05f;
+    private static float scaleWidth = 0.5f;
 
-    public GameObject CreateRoad(Vector2 start, Vector2 end, GameObject map) {
-        GameObject road = Instantiate(roadPrefab, map.transform);
-        SpriteRenderer spriteRenderer = road.GetComponent<SpriteRenderer>();
-        Vector2 roadVec = end - start;
-        uint roadLength = Convert.ToUInt32(Math.Ceiling((end - start).magnitude));
-        road.transform.position = start + roadVec / 2;
-        spriteRenderer.size = new Vector2(roadLength, spriteRenderer.size.y);
-        road.transform.rotation = Quaternion.Euler(0, 0, Vector2.Angle(Vector2.left, roadVec));
+    public GameObject CreateRoad(Vector2 start, Vector2 end) {
+        GameObject road = Instantiate(roadPrefab);
+        road.transform.position = Vector3.zero;
+        Shape shape = road.GetComponent<Shape>();
+        shape.ShapeData.ClearPolyPoints();
 
-        var leftLane = AddCarSimulation(roadLength, road);
-        leftLane.transform.Translate(new Vector3(0, 0));
-        leftLane.name = "Left Lane Car Simulation";
-        var rightLane = AddCarSimulation(roadLength, road);
-        rightLane.transform.Translate(new Vector3(0, -0.250f));
-        rightLane.name = "Right Lane Car Simulation";
+        Vector2 direction = (end - start).normalized;
+        Vector2 perp = new Vector2(-direction.y, direction.x) * scaleWidth;
+        Vector2 A = start + perp;
+        Vector2 B = start - perp;
+        Vector2 C = end - perp;
+        Vector2 D = end + perp;
+
+        Debug.Log(start);
+        Debug.Log(end);
+        Debug.Log(direction);
+        Debug.Log(A);
+        Debug.Log(B);
+        Debug.Log(C);
+        Debug.Log(D);
+
+        shape.ShapeData.AddPolyPoint(A);
+        shape.ShapeData.AddPolyPoint(B);
+        shape.ShapeData.AddPolyPoint(C);
+        shape.ShapeData.AddPolyPoint(D);
+
+        // var leftLane = AddCarSimulation(roadLength, road);
+        // leftLane.transform.Translate(new Vector3(0, 0));
+        // leftLane.name = "Left Lane Car Simulation";
+        // var rightLane = AddCarSimulation(roadLength, road);
+        // rightLane.transform.Translate(new Vector3(0, -0.250f));
+        // rightLane.name = "Right Lane Car Simulation";
 
         return road;
     }
+
     private GameObject AddCarSimulation(uint units, GameObject road) {
         var numberOfCells = Convert.ToInt32(units / (cellDiameter + cellGap));
         var carSimulation = Instantiate(carSimulationPrefab, road.transform);

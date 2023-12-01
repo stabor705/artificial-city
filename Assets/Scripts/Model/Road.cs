@@ -4,13 +4,12 @@ using System;
 using UnityEngine;
 
 [Serializable]
-class RoadDto {
+public class RoadDto {
     public uint id;
-    public List<float> geometry_x;
-    public List<float> geometry_y;
+    public List<Line> coordinates;
 }
 
-class Road {
+public class Road {
     public uint id;
     public List<Vector2> geometry;
 
@@ -20,7 +19,15 @@ class Road {
         this.geometry = geometry;
     }
 
-    public static Road FromDto(RoadDto dto) {
-        return new Road(dto.id, dto.geometry_x.Zip(dto.geometry_y, (x, y) => new Vector2(x, y)).ToList());
+    public static Road FromDto(RoadDto dto, GeometryMapper mapper) {
+        List<Vector2> geometry = new List<Vector2>();
+        foreach (var line in dto.coordinates) {
+            geometry.Add(mapper.map(line.start));
+            geometry.Add(mapper.map(line.end));
+        }
+        return new Road(
+            dto.id,
+            geometry
+        );
     }
-    }
+}

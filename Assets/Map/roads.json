@@ -1,0 +1,794 @@
+{
+    "network": [
+        {
+            "id": "0",
+            "highway": "tertiary",
+            "lanes": "2",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 50.274,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913864135742188,
+                        "y": 50.06876754760742
+                    },
+                    "end": {
+                        "x": 19.913976669311523,
+                        "y": 50.0692138671875
+                    }
+                }
+            ]
+        },
+        {
+            "id": "1",
+            "highway": "tertiary",
+            "lanes": "2",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 9.474,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913976669311523,
+                        "y": 50.0692138671875
+                    },
+                    "end": {
+                        "x": 19.913999557495117,
+                        "y": 50.069297790527344
+                    }
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "highway": "tertiary",
+            "lanes": "2",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 18.002,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913999557495117,
+                        "y": 50.069297790527344
+                    },
+                    "end": {
+                        "x": 19.91403579711914,
+                        "y": 50.0694580078125
+                    }
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "highway": "tertiary",
+            "lanes": "2",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 77.485,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.91403579711914,
+                        "y": 50.0694580078125
+                    },
+                    "end": {
+                        "x": 19.914220809936523,
+                        "y": 50.07014465332031
+                    }
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "highway": "tertiary",
+            "lanes": "2",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 31.749,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.914220809936523,
+                        "y": 50.07014465332031
+                    },
+                    "end": {
+                        "x": 19.914287567138672,
+                        "y": 50.07042694091797
+                    }
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "highway": "tertiary",
+            "lanes": "2",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 80.809,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.914287567138672,
+                        "y": 50.07042694091797
+                    },
+                    "end": {
+                        "x": 19.914470672607422,
+                        "y": 50.071144104003906
+                    }
+                }
+            ]
+        },
+        {
+            "id": "6",
+            "highway": "tertiary",
+            "lanes": "2",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 8.424,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.914470672607422,
+                        "y": 50.071144104003906
+                    },
+                    "end": {
+                        "x": 19.914505004882812,
+                        "y": 50.07121658325195
+                    }
+                }
+            ]
+        },
+        {
+            "id": "7",
+            "highway": "tertiary",
+            "lanes": "2",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 12.159,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.914505004882812,
+                        "y": 50.07121658325195
+                    },
+                    "end": {
+                        "x": 19.914562225341797,
+                        "y": 50.071319580078125
+                    }
+                }
+            ]
+        },
+        {
+            "id": "8",
+            "highway": "tertiary",
+            "lanes": "2",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 40.812,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.914562225341797,
+                        "y": 50.071319580078125
+                    },
+                    "end": {
+                        "x": 19.914764404296875,
+                        "y": 50.07166290283203
+                    }
+                }
+            ]
+        },
+        {
+            "id": "9",
+            "highway": "secondary",
+            "lanes": "3",
+            "maxspeed": "50",
+            "name": "Nawojki",
+            "oneway": null,
+            "length": 46.743,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.9141902923584,
+                        "y": 50.067745208740234
+                    },
+                    "end": {
+                        "x": 19.913637161254883,
+                        "y": 50.067970275878906
+                    }
+                }
+            ]
+        },
+        {
+            "id": "10",
+            "highway": "secondary",
+            "lanes": "3",
+            "maxspeed": "50",
+            "name": "Nawojki",
+            "oneway": null,
+            "length": 12.832,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913637161254883,
+                        "y": 50.067970275878906
+                    },
+                    "end": {
+                        "x": 19.913484573364258,
+                        "y": 50.068031311035156
+                    }
+                }
+            ]
+        },
+        {
+            "id": "11",
+            "highway": "secondary",
+            "lanes": "3",
+            "maxspeed": "50",
+            "name": "Nawojki",
+            "oneway": null,
+            "length": 25.095,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913484573364258,
+                        "y": 50.068031311035156
+                    },
+                    "end": {
+                        "x": 19.913192749023438,
+                        "y": 50.06815719604492
+                    }
+                }
+            ]
+        },
+        {
+            "id": "26",
+            "highway": "residential",
+            "lanes": "1",
+            "maxspeed": "30",
+            "name": "Juliusza Lea",
+            "oneway": "yes",
+            "length": 12.474,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.914505004882812,
+                        "y": 50.07121658325195
+                    },
+                    "end": {
+                        "x": 19.914674758911133,
+                        "y": 50.071189880371094
+                    }
+                }
+            ]
+        },
+        {
+            "id": "27",
+            "highway": "residential",
+            "lanes": "2",
+            "maxspeed": "30",
+            "name": "Juliusza Lea",
+            "oneway": null,
+            "length": 22.991,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913660049438477,
+                        "y": 50.07132339477539
+                    },
+                    "end": {
+                        "x": 19.913976669311523,
+                        "y": 50.071285247802734
+                    }
+                }
+            ]
+        },
+        {
+            "id": "28",
+            "highway": "residential",
+            "lanes": "2",
+            "maxspeed": "30",
+            "name": "Juliusza Lea",
+            "oneway": null,
+            "length": 9.231,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913976669311523,
+                        "y": 50.071285247802734
+                    },
+                    "end": {
+                        "x": 19.91410255432129,
+                        "y": 50.071266174316406
+                    }
+                }
+            ]
+        },
+        {
+            "id": "29",
+            "highway": "residential",
+            "lanes": "2",
+            "maxspeed": "30",
+            "name": "Juliusza Lea",
+            "oneway": null,
+            "length": 14.998,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.91410255432129,
+                        "y": 50.071266174316406
+                    },
+                    "end": {
+                        "x": 19.914308547973633,
+                        "y": 50.07123947143555
+                    }
+                }
+            ]
+        },
+        {
+            "id": "30",
+            "highway": "residential",
+            "lanes": "2",
+            "maxspeed": "30",
+            "name": "Juliusza Lea",
+            "oneway": null,
+            "length": 14.25,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.914308547973633,
+                        "y": 50.07123947143555
+                    },
+                    "end": {
+                        "x": 19.914505004882812,
+                        "y": 50.07121658325195
+                    }
+                }
+            ]
+        },
+        {
+            "id": "31",
+            "highway": "tertiary",
+            "lanes": "3",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 10.03,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913637161254883,
+                        "y": 50.067970275878906
+                    },
+                    "end": {
+                        "x": 19.91368865966797,
+                        "y": 50.06805419921875
+                    }
+                }
+            ]
+        },
+        {
+            "id": "32",
+            "highway": "tertiary",
+            "lanes": "3",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 42.563,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.91368865966797,
+                        "y": 50.06805419921875
+                    },
+                    "end": {
+                        "x": 19.913785934448242,
+                        "y": 50.06843185424805
+                    }
+                }
+            ]
+        },
+        {
+            "id": "33",
+            "highway": "tertiary",
+            "lanes": "3",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 9.451,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913785934448242,
+                        "y": 50.06843185424805
+                    },
+                    "end": {
+                        "x": 19.913806915283203,
+                        "y": 50.06851577758789
+                    }
+                }
+            ]
+        },
+        {
+            "id": "34",
+            "highway": "tertiary",
+            "lanes": "3",
+            "maxspeed": "50",
+            "name": "Aleja Kijowska",
+            "oneway": null,
+            "length": 28.292,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913806915283203,
+                        "y": 50.06851577758789
+                    },
+                    "end": {
+                        "x": 19.913864135742188,
+                        "y": 50.06876754760742
+                    }
+                }
+            ]
+        },
+        {
+            "id": "41",
+            "highway": "residential",
+            "lanes": "2",
+            "maxspeed": "30",
+            "name": "Elbl\u0105ska",
+            "oneway": null,
+            "length": 46.105,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.914609909057617,
+                        "y": 50.06843185424805
+                    },
+                    "end": {
+                        "x": 19.913972854614258,
+                        "y": 50.06850051879883
+                    }
+                }
+            ]
+        },
+        {
+            "id": "42",
+            "highway": "residential",
+            "lanes": "2",
+            "maxspeed": "30",
+            "name": "Elbl\u0105ska",
+            "oneway": null,
+            "length": 11.964,
+            "coordinates": [
+                {
+                    "start": {
+                        "x": 19.913972854614258,
+                        "y": 50.06850051879883
+                    },
+                    "end": {
+                        "x": 19.913806915283203,
+                        "y": 50.06851577758789
+                    }
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "id": "2",
+            "lat": 50.06876754760742,
+            "lon": 19.913864135742188,
+            "tags": {
+                "bus": "yes",
+                "direction": "forward",
+                "name": "Kawiory 04",
+                "public_transport": "stop_position"
+            }
+        },
+        {
+            "id": "3",
+            "lat": 50.0692138671875,
+            "lon": 19.913976669311523,
+            "tags": null
+        },
+        {
+            "id": "4",
+            "lat": 50.069297790527344,
+            "lon": 19.913999557495117,
+            "tags": null
+        },
+        {
+            "id": "5",
+            "lat": 50.0694580078125,
+            "lon": 19.91403579711914,
+            "tags": null
+        },
+        {
+            "id": "6",
+            "lat": 50.07014465332031,
+            "lon": 19.914220809936523,
+            "tags": {
+                "crossing": "marked",
+                "crossing:island": "yes",
+                "highway": "crossing",
+                "tactile_paving": "yes"
+            }
+        },
+        {
+            "id": "7",
+            "lat": 50.07042694091797,
+            "lon": 19.914287567138672,
+            "tags": null
+        },
+        {
+            "id": "8",
+            "lat": 50.071144104003906,
+            "lon": 19.914470672607422,
+            "tags": {
+                "button_operated": "yes",
+                "crossing": "traffic_signals",
+                "crossing:island": "no",
+                "highway": "crossing",
+                "tactile_paving": "yes",
+                "traffic_signals:sound": "yes",
+                "traffic_signals:vibration": "no"
+            }
+        },
+        {
+            "id": "9",
+            "lat": 50.07121658325195,
+            "lon": 19.914505004882812,
+            "tags": {
+                "highway": "traffic_signals"
+            }
+        },
+        {
+            "id": "10",
+            "lat": 50.071319580078125,
+            "lon": 19.914562225341797,
+            "tags": {
+                "button_operated": "yes",
+                "crossing": "traffic_signals",
+                "crossing:island": "no",
+                "highway": "crossing",
+                "traffic_signals:vibration": "no"
+            }
+        },
+        {
+            "id": "14",
+            "lat": 50.067970275878906,
+            "lon": 19.913637161254883,
+            "tags": {
+                "highway": "traffic_signals"
+            }
+        },
+        {
+            "id": "20",
+            "lat": 50.068031311035156,
+            "lon": 19.913484573364258,
+            "tags": {
+                "bicycle": "yes",
+                "button_operated": "yes",
+                "crossing": "traffic_signals",
+                "crossing:island": "no",
+                "highway": "crossing",
+                "tactile_paving": "yes",
+                "traffic_signals:sound": "yes",
+                "traffic_signals:vibration": "no"
+            }
+        },
+        {
+            "id": "21",
+            "lat": 50.06815719604492,
+            "lon": 19.913192749023438,
+            "tags": null
+        },
+        {
+            "id": "22",
+            "lat": 50.06938171386719,
+            "lon": 19.91367530822754,
+            "tags": {
+                "barrier": "gate"
+            }
+        },
+        {
+            "id": "23",
+            "lat": 50.069358825683594,
+            "lon": 19.913606643676758,
+            "tags": null
+        },
+        {
+            "id": "24",
+            "lat": 50.06924819946289,
+            "lon": 19.913572311401367,
+            "tags": null
+        },
+        {
+            "id": "25",
+            "lat": 50.06924819946289,
+            "lon": 19.913490295410156,
+            "tags": null
+        },
+        {
+            "id": "29",
+            "lat": 50.070411682128906,
+            "lon": 19.914461135864258,
+            "tags": {
+                "crossing": "unmarked",
+                "highway": "crossing"
+            }
+        },
+        {
+            "id": "30",
+            "lat": 50.070404052734375,
+            "lon": 19.91453742980957,
+            "tags": null
+        },
+        {
+            "id": "31",
+            "lat": 50.070350646972656,
+            "lon": 19.914766311645508,
+            "tags": null
+        },
+        {
+            "id": "34",
+            "lat": 50.069210052490234,
+            "lon": 19.91415786743164,
+            "tags": {
+                "highway": "crossing"
+            }
+        },
+        {
+            "id": "35",
+            "lat": 50.0692024230957,
+            "lon": 19.914216995239258,
+            "tags": {
+                "barrier": "gate"
+            }
+        },
+        {
+            "id": "42",
+            "lat": 50.07139587402344,
+            "lon": 19.91510772705078,
+            "tags": null
+        },
+        {
+            "id": "65",
+            "lat": 50.071266174316406,
+            "lon": 19.91410255432129,
+            "tags": null
+        },
+        {
+            "id": "66",
+            "lat": 50.07121658325195,
+            "lon": 19.91408348083496,
+            "tags": null
+        },
+        {
+            "id": "67",
+            "lat": 50.071102142333984,
+            "lon": 19.91398811340332,
+            "tags": {
+                "access": "private",
+                "barrier": "gate"
+            }
+        },
+        {
+            "id": "70",
+            "lat": 50.071189880371094,
+            "lon": 19.914674758911133,
+            "tags": {
+                "check_date:crossing": "2022-05-23",
+                "crossing": "traffic_signals",
+                "highway": "crossing",
+                "tactile_paving": "incorrect",
+                "traffic_signals:sound": "yes"
+            }
+        },
+        {
+            "id": "73",
+            "lat": 50.071285247802734,
+            "lon": 19.913976669311523,
+            "tags": null
+        },
+        {
+            "id": "74",
+            "lat": 50.07123947143555,
+            "lon": 19.914308547973633,
+            "tags": {
+                "bicycle": "yes",
+                "button_operated": "no",
+                "check_date:crossing": "2021-06-07",
+                "crossing": "traffic_signals",
+                "crossing:island": "no",
+                "highway": "crossing",
+                "tactile_paving": "incorrect",
+                "traffic_signals:sound": "yes"
+            }
+        },
+        {
+            "id": "78",
+            "lat": 50.06805419921875,
+            "lon": 19.91368865966797,
+            "tags": {
+                "bicycle": "yes",
+                "button_operated": "no",
+                "crossing": "traffic_signals",
+                "crossing:island": "no",
+                "highway": "crossing",
+                "tactile_paving": "yes",
+                "traffic_signals:sound": "yes",
+                "traffic_signals:vibration": "no"
+            }
+        },
+        {
+            "id": "79",
+            "lat": 50.06843185424805,
+            "lon": 19.913785934448242,
+            "tags": {
+                "bus": "yes",
+                "direction": "backward",
+                "name": "Kawiory 01",
+                "public_transport": "stop_position"
+            }
+        },
+        {
+            "id": "80",
+            "lat": 50.06851577758789,
+            "lon": 19.913806915283203,
+            "tags": null
+        },
+        {
+            "id": "83",
+            "lat": 50.06902313232422,
+            "lon": 19.913515090942383,
+            "tags": null
+        },
+        {
+            "id": "84",
+            "lat": 50.06903839111328,
+            "lon": 19.913360595703125,
+            "tags": null
+        },
+        {
+            "id": "85",
+            "lat": 50.06886291503906,
+            "lon": 19.91347312927246,
+            "tags": null
+        },
+        {
+            "id": "86",
+            "lat": 50.0694694519043,
+            "lon": 19.913883209228516,
+            "tags": null
+        },
+        {
+            "id": "87",
+            "lat": 50.0694465637207,
+            "lon": 19.913814544677734,
+            "tags": null
+        },
+        {
+            "id": "88",
+            "lat": 50.06850051879883,
+            "lon": 19.913972854614258,
+            "tags": {
+                "crossing": "unmarked",
+                "crossing:island": "no",
+                "highway": "crossing",
+                "tactile_paving": "yes"
+            }
+        }
+    ]
+}

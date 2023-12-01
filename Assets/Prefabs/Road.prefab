@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4677203804197351547}
-  - component: {fileID: 703679023328715020}
+  - component: {fileID: 4947227996636901107}
+  - component: {fileID: 7343140691049869256}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -32,55 +33,80 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &703679023328715020
-SpriteRenderer:
+--- !u!114 &4947227996636901107
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3644068942985191874}
   m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5046349, g: 0.5046349, b: 0.5046349, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 2
-  m_Size: {x: 1, y: 0.5}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b093fd50a0ef4da9a602caffb1efd88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapeAsset: {fileID: 0}
+  localShapeData:
+    shapeType: 2
+    polyDimension: 0
+    isPolygonStrokeClosed: 1
+    polyPointTypes: 00000000000000000000000000000000
+    polyPointPositions:
+    - {x: 0.5, y: 0.5, z: 0}
+    - {x: -0.5, y: 0.5, z: 0}
+    - {x: -0.5, y: -0.5, z: 0}
+    - {x: 0.5, y: -0.5, z: 0}
+    polyPointInTangents:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    polyPointOutTangents:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    polyPointStrokeColors:
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    - {r: 0, g: 0, b: 0, a: 1}
+    polyPointStrokeWidths:
+    - 0.01
+    - 0.01
+    - 0.01
+    - 0.01
+    shapeOffset: {x: 0, y: 0, z: 0}
+    shapeSize: {x: 1, y: 1}
+    strokeColor: {r: 0, g: 0, b: 0, a: 1}
+    strokeWidth: 0.01
+    isFillEnabled: 1
+    fillColor: {r: 0.7627546, g: 0.7627546, b: 0.7627546, a: 1}
+    fillNormal: {x: 0, y: 0, z: 1}
+    fillTextureMode: 0
+    fillTextureOffset: {x: 0, y: 0}
+    fillTextureTiling: {x: 1, y: 1}
+    isStrokeEnabled: 0
+    strokeCornerType: 1
+    strokeRenderType: 1
+    strokeTextureType: 1
+    strokeMiterLimit: 3
+    strokeTextureTiling: 1
+    strokeTextureOffset: 0
+    hasVariableStrokeWidth: 0
+    hasVariableStrokeColor: 0
+--- !u!114 &7343140691049869256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644068942985191874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079254905bd2243f788ef766a728ef80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  strokeMaterial: {fileID: 2100000, guid: e6181ba8457b54e35bce36d2d18e93d9, type: 2}
+  fillMaterial: {fileID: 2100000, guid: e70ebb3e00e2e40e49b46e8e6e5e7349, type: 2}

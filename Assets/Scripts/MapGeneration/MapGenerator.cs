@@ -6,28 +6,31 @@ using UnityEditor;
 
 namespace MapGeneration {
     public class MapGenerator : MonoBehaviour {
-        public TextAsset decorationsFile;
+        public TextAsset buildingsJson;
+        public TextAsset roadsJson;
+        public GeometryMapper geometryMapper;
         public BuildingCreator buildingCreator;
         public RoadCreator roadCreator;
         private static string MapGameObjectName = "Map";
 
         public void GenerateMap() {
             var map = GetNewMap();
-            var objectsDto = JsonUtility.FromJson<ObjectsDto>(decorationsFile.text);
-            var decorations = objectsDto.decorations.Select(dto => Decoration.FromDto(dto)).ToList();
-            Debug.Log(decorations);
-            var roads = objectsDto.roads.Select(dto => Road.FromDto(dto)).ToList();
+            var buildingsDto = JsonUtility.FromJson<BuildingsDto>(buildingsJson.text);
+            var buildings = buildingsDto.buildings.Select(dto => Building.FromDto(dto, geometryMapper));
+            var roadsDto = JsonUtility.FromJson<RoadsDto>(roadsJson.text);
+            var roads = roadsDto.network.Select(dto => Road.FromDto(dto, geometryMapper));
 
-            foreach (var decoration in decorations) {
-                var gameObject = buildingCreator.CreateBuilding(decoration.geometry);
+            foreach (var building in buildings) {
+                var gameObject = buildingCreator.CreateBuilding(building.geometry);
                 gameObject.transform.SetParent(map.transform);
-                gameObject.name = $"Decoration {decoration.id}";
+                gameObject.name = $"Decoration {building.id}";
             }
 
             foreach (var road in roads) {
                 var sections = road.geometry.Zip(road.geometry.Skip(1), (start, end) => (start, end)).ToList();
                 foreach (var (start, end) in sections) {
-                    var gameObject = roadCreator.CreateRoad(start, end, map);
+                    var gameObject = roadCreator.CreateRoad(start, end);
+                    gameObject.transform.SetParent(map.transform);
                     gameObject.name = $"Road {road.id}";
                 }
             }
@@ -42,7 +45,5 @@ namespace MapGeneration {
             map = new GameObject(MapGameObjectName);
             return map;
         }
-
     }
-
 }

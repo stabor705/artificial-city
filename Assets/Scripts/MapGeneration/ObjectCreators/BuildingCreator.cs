@@ -1,13 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
+using VectorShapes;
 
 public class BuildingCreator : MonoBehaviour {
         public GameObject buildingPrefab;
+
         public GameObject CreateBuilding(List<Vector2> geometry) {
-            GameObject decoration = Instantiate(buildingPrefab);
-            decoration.transform.position = (geometry[2] - geometry[0]) / 2 + geometry[0];
-            decoration.transform.localScale = new Vector3((geometry[1] - geometry[0]).magnitude, (geometry[2] - geometry[1]).magnitude);
-            decoration.transform.rotation = Quaternion.Euler(0, 0, Vector2.Angle(Vector2.left, geometry[0] - geometry[1]));
-            return decoration;
+            GameObject building = Instantiate(buildingPrefab);
+            building.transform.position = Vector3.zero;
+            Shape shape = building.GetComponent<Shape>();
+            shape.ShapeData.ClearPolyPoints();
+            foreach (var point in geometry) {
+                shape.ShapeData.AddPolyPoint(point);
+            }
+            return building;
         }
 }
