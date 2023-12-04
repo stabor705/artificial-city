@@ -7,18 +7,10 @@ namespace NagelSchreckenbergDemo
 {
     public class Vehicle
     {
-        public enum Direction
-        {
-            LEFT,
-            STRAIGHT,
-            RIGHT,
-            UNKNOWN
-        }
-
         public int id;
         public int length;
 
-        public Edge? edge;
+        public Edge edge;
         public Edge? nextEdge;
         public Direction nextEdgeDirection;
 
@@ -65,7 +57,20 @@ namespace NagelSchreckenbergDemo
             /*
             TODO Here goes the logic for setting the state for current edge's end Vertex
             */
-            if (nextEdge is not null && index >= this.edge.length)
+            if (index - start == ReservationDistance.GetReservationDistance(nextEdgeDirection, this.edge.priority))
+            {
+                // TODO console log
+                this.edge.endV.state = VertexState.SetState(
+                    this.edge.endV.state,
+                    VertexState.GetState(nextEdgeDirection, this.edge.priority)
+                );
+            }
+
+            if (
+                nextEdge is not null
+                && index >= this.edge.length
+                && nextEdge.startV.IsAvailable(this.nextEdgeDirection, this.edge.priority)
+            )
             {
                 int nextIndex = index - this.edge.length;
                 // Console.WriteLine("New edge " + id + " " + nextIndex);
@@ -187,7 +192,10 @@ namespace NagelSchreckenbergDemo
             List<Edge>? candidates = new List<Edge>(this.edge.endV.OutEdges);
             candidates.RemoveAll(edge => edge.endV == this.edge.startV);
             if (candidates is null || candidates.Count == 0)
+            {
+                this.nextEdgeDirection = Direction.UNKNOWN;
                 return null;
+            }
             // Console.WriteLine("Candidates for vehicle " + this.id + ": " + string.Join("", edge.id));
 
             int candidateIndex = new Random().Next(0, candidates.Count);
@@ -202,6 +210,13 @@ namespace NagelSchreckenbergDemo
         {
             Console.WriteLine("changing old edge: " + this.edge + " to next edge: " + this.nextEdge);
             this.edge.RemoveVehicle(this);
+
+            this.edge.endV.state = VertexState.UnsetState(
+                this.edge.endV.state,
+                VertexState.GetState(nextEdgeDirection, this.edge.priority)
+            );
+
+            if (this.nextEdge is null) throw new Exception("There is no next edge for " + this);
             this.nextEdge.AddVehicle(this);
 
             this.edge = this.nextEdge;

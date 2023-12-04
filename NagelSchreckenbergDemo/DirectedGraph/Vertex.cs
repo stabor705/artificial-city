@@ -6,36 +6,6 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 {
     public class Vertex
     {
-        public static class VertexState
-        {
-            // UInt16 representation of state of Vertex
-            // unused x 7
-            // Major road straight
-            // Major road right
-            // Major road left
-            // Minor road right
-            // Minor road straight
-            // Minor road left
-            // unused x 2
-            // Free
-            public const ushort MAJOR_STRAIGHT = 256;
-            public const ushort MAJOR_RIGHT = 128;
-            public const ushort MAJOR_LEFT = 64;
-            public const ushort MINOR_RIGHT = 32;
-            public const ushort MINOR_STRAIGH = 16;
-            public const ushort MINOR_LEFT = 8;
-
-            public static ushort SetState(ushort previousState, ushort stateToSet)
-            {
-                return (ushort)(previousState | stateToSet);
-            }
-
-            public static ushort UnsetState(ushort previousState, ushort stateToUnset)
-            {
-                return (ushort)(previousState & ~stateToUnset);
-            }
-        }
-
         public ushort state = 0;
         public int id;
 
@@ -56,15 +26,17 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.InEdges = new List<Edge>();
         }
 
-        virtual public void Iterate()
-        {
+        virtual public void Iterate() {}
 
+        public bool IsAvailable(Direction direction, Priority priority)
+        {
+            return VertexState.IsAvailable(this.state, direction, priority);
         }
     }
 
     public class Crossing : Vertex
     {
-        public bool pedestriansCrossing = false; // po chuj mi to
+        public bool pedestriansCrossing = false;
         const int MIN_COUNTDOWN = 240;
         const int COUNTDOWN_VARIANCE = 120;
         const double PROBABILITY = 0.03;
@@ -92,7 +64,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 
         public void PedestriansCrossingEnd()
         {
-            if (!pedestriansCrossing) return; // po chuj mi to
+            if (!pedestriansCrossing) return;
 
             foreach (Edge inEdge in this.InEdges)
             {

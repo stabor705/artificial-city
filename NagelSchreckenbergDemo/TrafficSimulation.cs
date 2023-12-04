@@ -69,7 +69,7 @@ namespace NagelSchreckenbergDemo
                 roadSystem.vertices.ForEach(vertex => vertex.Iterate());
                 roadSystem.edges.ForEach(edge => edge.Iterate(time));
 
-                // PrintState(debug);
+                PrintState(debug);
                 Thread.Sleep(10);
             }
         }

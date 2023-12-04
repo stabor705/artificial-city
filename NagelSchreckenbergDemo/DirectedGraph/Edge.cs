@@ -6,10 +6,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 {
     public class Edge
     {
-        public enum Priority {
-            MAJOR,
-            MINOR
-        }
+
         public Priority priority;
         public int id;
         public int length;
@@ -94,14 +91,14 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         {
             this.vehicles.Add(vehicle);
         }
-        
+
         public void RemoveVehicle(Vehicle vehicle)
         {
             Console.WriteLine("removing vehicle: " + vehicle.id + " from edge: " + this);
             for (int i = 0; i < this.cells.Length; i++)
                 if (cells[i] == vehicle.id)
                     cells[i] = 0;
-            
+
             this.vehicles.Remove(vehicle);
         }
 
