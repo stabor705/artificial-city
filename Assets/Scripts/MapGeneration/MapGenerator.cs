@@ -14,7 +14,7 @@ namespace MapGeneration {
         public BuildingCreator buildingCreator;
         public RoadCreator roadCreator;
         public GameObject trafficSimulationPrefab;
-        private static string MapGameObjectName = "Map";
+        public GameObject mapPrefab;
 
         public void GenerateMap() {
             var map = GetNewMap();
@@ -44,7 +44,7 @@ namespace MapGeneration {
                     gameObject.transform.SetParent(map.transform);
                     gameObject.name = $"Road {road.id}";
 
-                    var carSimulation = roadCreator.CreateCarSimulation((end - start).magnitude);
+                    var carSimulation = roadCreator.CreateCarSimulation(start, end);
                     roadCreator.AddCarSimulationToRoad(carSimulation, gameObject, start, end, true);
                     var carSimulationComponent = carSimulation.GetComponent<CellAutomataStateManager>();
 
@@ -67,19 +67,18 @@ namespace MapGeneration {
                     trafficSimulationComponent.automatas.Add(carSimulationComponent);
                     trafficSimulationComponent.edge_start_vertices.Add(start_node_idx);
                     trafficSimulationComponent.edge_end_vertices.Add(end_node_idx);
-                    trafficSimulationComponent.edge_automata_vertices.Add(trafficSimulationComponent.automatas.Count - 1);
                 }
             }
-            trafficSimulationComponent.nodes = nodes;
         }
 
         private GameObject GetNewMap() {
             var scene = EditorSceneManager.GetActiveScene();
-            GameObject map = scene.GetRootGameObjects().FirstOrDefault(gameObject => gameObject.name == MapGameObjectName);
+            GameObject map = scene.GetRootGameObjects().FirstOrDefault(gameObject => gameObject.name == "Map");
             if (map != null) {
                 DestroyImmediate(map);
             }
-            map = new GameObject(MapGameObjectName);
+            map = Instantiate(mapPrefab);
+            map.name = "Map";
             return map;
         }
     }

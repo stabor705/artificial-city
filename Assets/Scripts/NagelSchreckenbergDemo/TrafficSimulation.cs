@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace NagelSchreckenbergDemo
@@ -6,10 +8,8 @@ namespace NagelSchreckenbergDemo
     public class TrafficSimulation : MonoBehaviour
     {
         public List<CellAutomataStateManager> automatas;
-        public List<Vector2> nodes;
         public List<int> edge_start_vertices;
         public List<int> edge_end_vertices;
-        public List<int> edge_automata_vertices;
         public float tickTime;
         public uint maxSimulationFrames;
         public static int numVehicles = 0;
@@ -27,15 +27,13 @@ namespace NagelSchreckenbergDemo
 
         private void Initialize()
         {
-            for (int i = 0; i < nodes.Count; i++) {
+            var numOfVertices = Math.Max(edge_start_vertices.Max(), edge_end_vertices.Max());
+            for (int i = 0; i < numOfVertices; i++) {
                 roadSystem.AddVertex();
             }
             for (int i = 0; i < automatas.Count; i++) {
                 roadSystem.AddEdge(automatas[i].cells.Count, edge_start_vertices[i], edge_end_vertices[i]);
             }
-            // for (int i = 0; i < automatas.Count; i++) {
-            //     roadSystem.AddEdge(automatas[i].cells.Count, i, i + 1);
-            // }
         }
 
         void Update() {
@@ -58,9 +56,9 @@ namespace NagelSchreckenbergDemo
                 for (int j = 0; j < roadSystem.edges[i].cells.Length; j++) {
                     var edge = roadSystem.edges[i];
                     if (edge.cells[j] != 0) {
-                        automatas[edge_automata_vertices[i]].SetOccupied(roadSystem.edges[i].cells.Length - j - 1);
+                        automatas[i].SetOccupied(j);
                     } else {
-                        automatas[edge_automata_vertices[i]].SetEmpty(roadSystem.edges[i].cells.Length - j - 1);
+                        automatas[i].SetEmpty(j);
                     }
                 }
             }
