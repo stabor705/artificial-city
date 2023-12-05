@@ -1,8 +1,6 @@
 using System;
 using UnityEngine;
-using UnityEditor;
 using VectorShapes;
-using NagelSchreckenbergDemo;
 
 public class RoadCreator : MonoBehaviour {
     public GameObject roadPrefab;
@@ -16,6 +14,13 @@ public class RoadCreator : MonoBehaviour {
     public GameObject CreateRoad(Vector2 start, Vector2 end) {
         GameObject road = Instantiate(roadPrefab);
         road.transform.position = Vector3.zero;
+
+        FillRoadPolygon(road, start, end);
+
+        return road;
+    }
+
+    private void FillRoadPolygon(GameObject road, Vector2 start, Vector2 end) {
         Shape shape = road.GetComponent<Shape>();
         shape.ShapeData.ClearPolyPoints();
 
@@ -31,17 +36,19 @@ public class RoadCreator : MonoBehaviour {
         shape.ShapeData.AddPolyPoint(B);
         shape.ShapeData.AddPolyPoint(C);
         shape.ShapeData.AddPolyPoint(D);
-
-
-        return road;
     }
 
-    public GameObject CreateCarSimulation(float units) {
+    public GameObject CreateCarSimulation(Vector2 start, Vector2 end) {
+        var m = (end.y - start.y) / (end.x - start.x);
+        var c = start.y - m*start.x;
+        var units = (end - start).magnitude;
         var numberOfCells = Convert.ToInt32(units / (cellDiameter + cellGap));
+        var dx = (end.x - start.x) / numberOfCells;
         var carSimulation = Instantiate(carSimulationPrefab);
         for (int i = 0; i < numberOfCells; i++) {
             var cell = Instantiate(cellPrefab, carSimulation.transform);
-            cell.transform.Translate(new Vector3(-0.15f * i, 0));
+            var x = start.x + i * dx;
+            cell.GetComponent<SpriteRenderer>().transform.position = new Vector3(x, m * x + c);
         }
         var cellAutomata = carSimulation.GetComponent<CellAutomataStateManager>();
         cellAutomata.refreshCellList();
@@ -52,8 +59,5 @@ public class RoadCreator : MonoBehaviour {
         carSimulation.transform.SetParent(road.transform);
         string laneStr = lane ? "Left" : "Right";
         carSimulation.name = $"{laneStr} Lane Car Simulation";
-        carSimulation.transform.position = end;
-        carSimulation.transform.rotation = Quaternion.Euler(new Vector3(0, 0, Vector3.Angle(Vector3.left, start - end)));
-        //var translationX = lane ? -0.5f : 0.5f;
     }
 }

@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CellAutomataStateManager : MonoBehaviour {
     public List<CellState> cells;
-    public int edge;
 
     public void refreshCellList() {
         foreach (Transform child in transform) {
@@ -11,6 +10,10 @@ public class CellAutomataStateManager : MonoBehaviour {
                 cells.Add(child.gameObject.GetComponent<CellState>());
             }
         }
+    }
+
+    public int length() {
+        return cells.Count;
     }
 
     public void SetOccupied(int idx) {

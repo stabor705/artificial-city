@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4677203804197351547}
   - component: {fileID: 4947227996636901107}
-  - component: {fileID: 7343140691049869256}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -95,18 +94,3 @@ MonoBehaviour:
     strokeTextureOffset: 0
     hasVariableStrokeWidth: 0
     hasVariableStrokeColor: 0
---- !u!114 &7343140691049869256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3644068942985191874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 079254905bd2243f788ef766a728ef80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  strokeMaterial: {fileID: 2100000, guid: e6181ba8457b54e35bce36d2d18e93d9, type: 2}
-  fillMaterial: {fileID: 2100000, guid: e70ebb3e00e2e40e49b46e8e6e5e7349, type: 2}

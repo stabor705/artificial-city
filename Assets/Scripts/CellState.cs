@@ -1,8 +1,9 @@
 using UnityEngine;
+using VectorShapes;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class CellState : MonoBehaviour {
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer _spriteRenderer;
     public enum State {
         Empty,
         Occupied
@@ -12,15 +13,19 @@ public class CellState : MonoBehaviour {
 
     public void GoToEmptyState() {
         state = State.Empty;
-        spriteRenderer.color = Color.white;
+        _spriteRenderer.color = Color.white;
     }
 
     public void GoToOccupiedState() {
         state = State.Occupied;
-        spriteRenderer.color = Color.red;
+        _spriteRenderer.color = Color.red;
     }
 
     public State GetState() {
         return state;
+    }
+
+    void Awake() {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 }
