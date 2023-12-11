@@ -60,23 +60,24 @@ namespace NagelSchreckenbergDemo
             /*
             TODO Here goes the logic for setting the state for current edge's end Vertex
             */
+            Console.WriteLine("Edge " + this.edge.id + " vehicle " + this.id + " sum: " + this.edge.cells.Skip(start).Sum());
             if (
-                this.edge.endV.IsAvailable(this.nextEdgeDirection, this.edge.priority)
-                && this.edge.cells.Skip(start).Sum() == 0 // must be the first to the crossroads
-                && start <= this.reservationDistance // must be closer than or equal to reservationDistance
+                this.edge.cells.Skip(start).Sum() == 0 // must be the first to the crossroads
+                && this.edge.length - start <= this.reservationDistance // must be closer than or equal to reservationDistance
             )
             {
-                Console.WriteLine(this + " edge: " + this.edge + " current state: " + this.edge.endV.state + " state to set: " + VertexState.GetState(nextEdgeDirection, this.edge.priority) + " next edge: " + this.nextEdge + " direction: " + this.nextEdgeDirection);
-                this.edge.endV.state = VertexState.SetState(
-                    this.edge.endV.state,
-                    VertexState.GetState(nextEdgeDirection, this.edge.priority)
-                );
+                Console.WriteLine(this + " edge: " + this.edge + " current state: " + this.edge.endV.GetInEdgeState(this.edge.id) + " state to set: " + vertexStateToBeSet + " next edge: " + this.nextEdge + " direction: " + this.nextEdgeDirection);
+                this.edge.endV.SetInEdgeState(this.edge.id, VertexState.GetState(nextEdgeDirection, this.edge.priority));
             }
 
             if (
                 nextEdge is not null
                 && index >= this.edge.length
-                && nextEdge.startV.IsAvailable(this.nextEdgeDirection, this.edge.priority)
+                &&
+                (
+                    nextEdge.startV.IsAvailable(this.nextEdgeDirection, this.edge.priority)
+                    || start >= this.edge.length
+                )
             )
             {
                 int nextIndex = index - this.edge.length;
@@ -221,8 +222,7 @@ namespace NagelSchreckenbergDemo
             Console.WriteLine("changing old edge: " + this.edge + " to next edge: " + this.nextEdge);
             this.edge.RemoveVehicle(this);
 
-            if (this.edge.endV.ShouldInvalidateState(this.id, this.vertexStateToBeSet, this.reservationDistance))
-                this.edge.endV.state = VertexState.UnsetState(this.edge.endV.state, this.vertexStateToBeSet);
+            this.edge.endV.UnsetInEdgeState(this.edge.id, vertexStateToBeSet);
 
             if (this.nextEdge is null) throw new Exception("There is no next edge for " + this);
             this.nextEdge.AddVehicle(this);

@@ -6,7 +6,6 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 {
     public class Vertex
     {
-        public ushort state = 0;
         public int id;
 
         public double lng; // x
@@ -15,6 +14,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 
         public List<Edge> OutEdges;
         public List<Edge> InEdges;
+        public Dictionary<int, ushort> inEdgeStates;
 
         public Vertex(int id, double lng, double lat)
         {
@@ -24,40 +24,52 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.z = -1 * (lat + lng);
             this.OutEdges = new List<Edge>();
             this.InEdges = new List<Edge>();
+            this.inEdgeStates = new Dictionary<int, ushort>();
         }
 
         virtual public void Iterate() {}
 
+        public void AddOutEdge(Edge edge)
+        {
+            this.OutEdges.Add(edge);
+        }
+
+        public void AddInEdge(Edge edge)
+        {
+            this.InEdges.Add(edge);
+            inEdgeStates.Add(edge.id, 0);
+        }
+
+        public ushort GetInEdgeState(int edgeId)
+        {
+            return this.inEdgeStates[edgeId];
+        }
+
+        public void SetInEdgeState(int edgeId, ushort stateToSet)
+        {
+            this.inEdgeStates[edgeId] = VertexState.SetState(
+                this.inEdgeStates[edgeId],
+                stateToSet
+            );
+        }
+
+        public void UnsetInEdgeState(int edgeId, ushort stateToUnset)
+        {
+            this.inEdgeStates[edgeId] = VertexState.UnsetState(
+                this.inEdgeStates[edgeId],
+                stateToUnset
+            );
+        }
+
         public bool IsAvailable(Direction direction, Priority priority)
         {
-            return VertexState.IsAvailable(this.state, direction, priority);
+            return VertexState.IsAvailable(
+                this.inEdgeStates.Values.Aggregate((result, next) => (ushort)(result | next)), 
+                direction, 
+                priority
+            );
         }
-        
-        public bool ShouldInvalidateState(int vehicleId, ushort stateToUnset, int reservationDistance)
-        {
-            // loop over inEdges to check whether
-            // vehicles in radius of stateToUnset don't have the same state
-            // if they do we cannot 
-            foreach (Edge inEdge in InEdges)
-            {
-                // do not look behind the current vehicle
-                if (inEdge.vehicles.Exists(vehicle => vehicle.id == vehicleId))
-                    continue;
 
-                foreach (Vehicle vehicle in inEdge.vehicles)
-                    if (vehicleId != vehicle.id
-                        && inEdge.length - vehicle.FrontPosition() < reservationDistance
-                        && vehicle.vertexStateToBeSet == stateToUnset)
-                    // found vehicle going in the same direction within reservation distance
-                    // do not unset the state!
-                    {
-                        Console.WriteLine("Vehicle: " + vehicle.id + " blocks unsetting the state: " + stateToUnset + " from vertex: " + this.id);
-                        return false;
-                    }
-            }
-
-            return true;
-        }
     }
 
     public class Crossing : Vertex

@@ -36,6 +36,8 @@ namespace NagelSchreckenbergDemo
             //                   \ |
             //                    *6
 
+            const int EGDE_LENGTH = 50;
+
             roadSystem.AddVertex(0, 1); // vertex 0
             roadSystem.AddCrossing(1, 1); // vertex 1
             roadSystem.AddVertex(2, 1); // vertex 2
@@ -44,18 +46,18 @@ namespace NagelSchreckenbergDemo
             roadSystem.AddVertex(3, 2); // vertex 5
             roadSystem.AddVertex(3, 0); // vertex 6
 
-            roadSystem.AddEdge(20, 0, 1, Priority.MAJOR);
-            roadSystem.AddEdge(20, 1, 2, Priority.MAJOR);
-            roadSystem.AddEdge(20, 2, 3, Priority.MAJOR);
-            roadSystem.AddEdge(20, 3, 4, Priority.MAJOR);
-            roadSystem.AddEdge(20, 4, 3, Priority.MAJOR);
-            roadSystem.AddEdge(20, 3, 2, Priority.MAJOR);
-            roadSystem.AddEdge(20, 2, 1, Priority.MAJOR);
-            roadSystem.AddEdge(20, 1, 0, Priority.MAJOR);
-            roadSystem.AddEdge(20, 3, 5);
-            roadSystem.AddEdge(20, 5, 3);
-            roadSystem.AddEdge(20, 3, 6);
-            roadSystem.AddEdge(20, 6, 3);
+            roadSystem.AddEdge(EGDE_LENGTH, 0, 1, Priority.MAJOR);
+            roadSystem.AddEdge(EGDE_LENGTH, 1, 2, Priority.MAJOR);
+            roadSystem.AddEdge(EGDE_LENGTH, 2, 3, Priority.MAJOR);
+            roadSystem.AddEdge(EGDE_LENGTH, 3, 4, Priority.MAJOR);
+            roadSystem.AddEdge(EGDE_LENGTH, 4, 3, Priority.MAJOR);
+            roadSystem.AddEdge(EGDE_LENGTH, 3, 2, Priority.MAJOR);
+            roadSystem.AddEdge(EGDE_LENGTH, 2, 1, Priority.MAJOR);
+            roadSystem.AddEdge(EGDE_LENGTH, 1, 0, Priority.MAJOR);
+            roadSystem.AddEdge(EGDE_LENGTH, 3, 5);
+            roadSystem.AddEdge(EGDE_LENGTH, 5, 3);
+            roadSystem.AddEdge(EGDE_LENGTH, 3, 6);
+            roadSystem.AddEdge(EGDE_LENGTH, 6, 3);
         }
 
         public void Run(bool debug = true)
@@ -77,22 +79,29 @@ namespace NagelSchreckenbergDemo
 
         public void PrintState(bool debug)
         {
-            Console.WriteLine("-----------------------------------------------------------------------");
-            foreach (Vertex vertex in roadSystem.vertices)
-            {
-                Console.WriteLine("Vertex: " + vertex.id + " state " + vertex.state);
-            }
+            // Console.WriteLine("-----------------------------------------------------------------------");
+            // foreach (Vertex vertex in roadSystem.vertices)
+            // {
+            //     Console.WriteLine("Vertex: " + vertex.id + " state " + vertex.state);
+            // }
             Console.WriteLine("-----------------------------------------------------------------------");
             foreach (Edge edge in roadSystem.edges)
             {
-                Console.WriteLine("Edge: " + edge.id + " starts from Vertex: " + edge.startV.id + " ends with Vertex: " + edge.endV.id);
+                Console.WriteLine("Edge: " + edge.id + " starts from Vertex: " + edge.startV.id + " ends with Vertex: " + edge.endV.id + " and has state: " + edge.endV.GetInEdgeState(edge.id) ?? "null");
                 if (debug)
                 {
-                    Console.WriteLine(string.Join("", edge.cells.Select(x => x % 10).ToArray()));
+                    Console.WriteLine("(" + edge.startV.id + ") " + string.Join("", edge.cells.Select(x => {
+                        if (x == -1)
+                            return '=';
+                        else if (x == 0)
+                            return '_';
+                        else
+                            return (x % 10).ToString()[0];
+                    }).ToArray()) + " (" + edge.endV.id + ")");
                 }
                 else
                 {
-                    Console.WriteLine(string.Join("", edge.cells.Select(cell =>
+                    Console.WriteLine("(" + edge.startV.id + ") " + string.Join("", edge.cells.Select(cell =>
                     {
                         if (cell == -1)
                             return '=';
@@ -100,7 +109,7 @@ namespace NagelSchreckenbergDemo
                             return '_';
                         else
                             return '#';
-                    }).ToArray()));
+                    }).ToArray()) + " (" + edge.endV.id + ")");
                 }
 
             }

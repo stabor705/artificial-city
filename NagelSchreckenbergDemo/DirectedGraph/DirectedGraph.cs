@@ -61,8 +61,8 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             Edge edge = new Edge(this.numEdges, length, vertices[startVertexId], vertices[endVertexId], priority);
             this.edges.Add(edge);
             this.numEdges++;
-            this.vertices[startVertexId].OutEdges.Add(edge);
-            this.vertices[endVertexId].InEdges.Add(edge);
+            this.vertices[startVertexId].AddOutEdge(edge);
+            this.vertices[endVertexId].AddInEdge(edge);
 
             if (this.vertices[endVertexId] is TrafficLights tl)
             {
