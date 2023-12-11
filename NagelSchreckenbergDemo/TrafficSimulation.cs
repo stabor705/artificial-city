@@ -78,12 +78,17 @@ namespace NagelSchreckenbergDemo
         public void PrintState(bool debug)
         {
             Console.WriteLine("-----------------------------------------------------------------------");
-            foreach (var edge in roadSystem.edges)
+            foreach (Vertex vertex in roadSystem.vertices)
+            {
+                Console.WriteLine("Vertex: " + vertex.id + " state " + vertex.state);
+            }
+            Console.WriteLine("-----------------------------------------------------------------------");
+            foreach (Edge edge in roadSystem.edges)
             {
                 Console.WriteLine("Edge: " + edge.id + " starts from Vertex: " + edge.startV.id + " ends with Vertex: " + edge.endV.id);
                 if (debug)
                 {
-                    Console.WriteLine(string.Join("", edge.cells));
+                    Console.WriteLine(string.Join("", edge.cells.Select(x => x % 10).ToArray()));
                 }
                 else
                 {

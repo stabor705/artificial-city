@@ -78,7 +78,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             if (new Random().NextDouble() < 0.1)
             {
                 int vehicleLength = 5;
-                if (this.cells.Skip(0).Take(vehicleLength).Sum() == 0 && TrafficSimulation.numVehicles < 3)
+                if (this.cells.Skip(0).Take(vehicleLength).Sum() == 0 && TrafficSimulation.numVehicles < 6)
                 {
                     TrafficSimulation.numVehicles++;
                     Console.WriteLine("Spawning vehicle " + TrafficSimulation.numVehicles);
