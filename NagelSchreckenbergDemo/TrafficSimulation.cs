@@ -1,4 +1,5 @@
 using NagelSchreckenbergDemo;
+using NagelSchreckenbergDemo.DirectedGraph;
 using System;
 using System.Diagnostics;
 
@@ -43,14 +44,14 @@ namespace NagelSchreckenbergDemo
             roadSystem.AddVertex(3, 2); // vertex 5
             roadSystem.AddVertex(3, 0); // vertex 6
 
-            roadSystem.AddEdge(20, 0, 1);
-            roadSystem.AddEdge(20, 1, 2);
-            roadSystem.AddEdge(20, 2, 3);
-            roadSystem.AddEdge(20, 3, 4);
-            roadSystem.AddEdge(20, 4, 3);
-            roadSystem.AddEdge(20, 3, 2);
-            roadSystem.AddEdge(20, 2, 1);
-            roadSystem.AddEdge(20, 1, 0);
+            roadSystem.AddEdge(20, 0, 1, Priority.MAJOR);
+            roadSystem.AddEdge(20, 1, 2, Priority.MAJOR);
+            roadSystem.AddEdge(20, 2, 3, Priority.MAJOR);
+            roadSystem.AddEdge(20, 3, 4, Priority.MAJOR);
+            roadSystem.AddEdge(20, 4, 3, Priority.MAJOR);
+            roadSystem.AddEdge(20, 3, 2, Priority.MAJOR);
+            roadSystem.AddEdge(20, 2, 1, Priority.MAJOR);
+            roadSystem.AddEdge(20, 1, 0, Priority.MAJOR);
             roadSystem.AddEdge(20, 3, 5);
             roadSystem.AddEdge(20, 5, 3);
             roadSystem.AddEdge(20, 3, 6);

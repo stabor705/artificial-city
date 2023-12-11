@@ -80,9 +80,9 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         public static bool IsAvailable(ushort state, Direction direction, Priority priority)
         {
             return direction switch {
-                Direction.LEFT => priority == Priority.MAJOR ? state <= MAJOR_LEFT : state <= MINOR_LEFT,
-                Direction.RIGHT => priority == Priority.MAJOR || state <= MINOR_RIGHT,
-                Direction.STRAIGHT => priority == Priority.MAJOR || state <= MINOR_STRAIGHT,
+                Direction.LEFT => priority == Priority.MAJOR ? state < MAJOR_RIGHT : state < MINOR_STRAIGHT,
+                Direction.RIGHT => priority == Priority.MAJOR || state < MAJOR_LEFT,
+                Direction.STRAIGHT => priority == Priority.MAJOR || state < MINOR_RIGHT,
                 _ => false
             };
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using NagelSchreckenbergDemo.DirectedGraph;
 
 namespace NagelSchreckenbergDemo.DirectedGraph
 {
@@ -55,9 +56,9 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.numVertices++;
         }
 
-        public void AddEdge(int length, int startVertexId, int endVertexId)
+        public void AddEdge(int length, int startVertexId, int endVertexId, Priority priority = Priority.MINOR)
         {
-            Edge edge = new Edge(this.numEdges, length, vertices[startVertexId], vertices[endVertexId]);
+            Edge edge = new Edge(this.numEdges, length, vertices[startVertexId], vertices[endVertexId], priority);
             this.edges.Add(edge);
             this.numEdges++;
             this.vertices[startVertexId].OutEdges.Add(edge);
