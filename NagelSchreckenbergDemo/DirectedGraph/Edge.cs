@@ -88,7 +88,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         public void RemoveVehicle(Vehicle vehicle)
         {
             if (Configuration.VALIDATION_SCRIPT_LOGS)
-                Console.WriteLine(this.ToString() + " removing vehicle: " + vehicle.id);
+                Console.WriteLine(this.ToString() + " removing " + vehicle.ToString());
             for (int i = 0; i < this.cells.Length; i++)
                 if (cells[i] == vehicle.id)
                     cells[i] = 0;
