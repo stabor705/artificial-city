@@ -15,7 +15,7 @@ vehicle_direction_for_vertex = {}
 all_logs = pathlib.Path('logs.txt').read_text()
 spawned_logs = re.findall(r"Vertex: \d+ spawning Vehicle: \d+", all_logs)
 removed_logs = re.findall(r"Vertex: \d+ removing Vehicle: \d+", all_logs)
-pedestrian_logs = re.findall(r"Vertex: \d+pedestrians crossing start", all_logs)
+pedestrian_logs = re.findall(r"Vertex: \d+ pedestrians crossing start", all_logs)
 direction_logs = re.findall(r"Vehicle: \d+ on Vertex: \d+ going: (?:LEFT|RIGHT|STRAIGHT)", all_logs)
 
 for spawned in spawned_logs:
