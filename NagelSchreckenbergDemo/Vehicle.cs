@@ -221,7 +221,10 @@ namespace NagelSchreckenbergDemo
         private void ChangeEdge()
         {
             if (Configuration.VALIDATION_SCRIPT_LOGS)
+            {
                 Console.WriteLine(this.ToString() + " on " + this.edge.endV.ToString() + " going: " + this.nextEdgeDirection);
+                Console.WriteLine(this.ToString() + " from " + this.edge.ToString() + " to " + this.nextEdge?.ToString() + " going: " + this.nextEdgeDirection);
+            }
             if (Configuration.DEBUG)
                 Console.WriteLine(this.ToString() + " changing old " + this.edge.ToString() + " to next " + this.nextEdge?.ToString());
             this.edge.RemoveVehicle(this);

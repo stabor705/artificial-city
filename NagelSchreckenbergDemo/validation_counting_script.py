@@ -6,17 +6,20 @@ import re
 # Vertex: number pedestrians crossing start
 # Edge: number removing Vehicle: number
 # Vehicle: number on Vertex: number going: LEFT|RIGHT|STRAIGHT
+# Vehicle: number from Edge: number to Edge: number going: LEFT|RIGHT|STRAIGHT
 
 spawned_vehicles_for_edge = {}
 removed_vehicles_for_edge = {}
 pedestrians_crossed_for_vertex = {}
 vehicle_direction_for_vertex = {}
+vehicle_direction_with_edges = {}
 
 all_logs = pathlib.Path('logs.txt').read_text()
 spawned_logs = re.findall(r"Vertex: \d+ spawning Vehicle: \d+", all_logs)
 removed_logs = re.findall(r"Vertex: \d+ removing Vehicle: \d+", all_logs)
 pedestrian_logs = re.findall(r"Vertex: \d+ pedestrians crossing start", all_logs)
 direction_logs = re.findall(r"Vehicle: \d+ on Vertex: \d+ going: (?:LEFT|RIGHT|STRAIGHT)", all_logs)
+direction_edges_logs = re.findall(r"Vehicle: \d+ from Edge: \d+ to Edge: \d+ going: (?:LEFT|RIGHT|STRAIGHT)")
 
 for spawned in spawned_logs:
     edge_id = int(spawned.split('Vertex: ')[-1].split(' ')[0])
@@ -48,6 +51,14 @@ for direction in direction_logs:
 
     vehicle_direction_for_vertex[vertex_id][vehicle_direction] += 1
 
+for direction_edge in direction_edges_logs:
+    edges, vehicle_direction = direction_edge.split('Vehicle: ')[-1].split(' going: ')
+
+    if edges not in vehicle_direction_with_edges:
+        vehicle_direction_with_edges[edges] = {'STRAIGHT': 0, 'RIGHT': 0, 'LEFT': 0}
+
+    vehicle_direction_with_edges[edges][vehicle_direction] += 1
+
 
 print('Spawned:')
 print(spawned_vehicles_for_edge)
@@ -60,3 +71,6 @@ print(pedestrians_crossed_for_vertex)
 
 print("Directions:")
 print(vehicle_direction_for_vertex)
+
+print("Directions with edges:")
+print(vehicle_direction_with_edges)
