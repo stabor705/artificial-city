@@ -27,13 +27,6 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.priority = priority;
         }
 
-        public void DistanceToChangeVertexState()
-        {
-            /*
-            TODO set distances or sth idk
-            */
-        }
-
         public int GetIndexOfVehicle(int id)
         {   
             return Array.IndexOf(this.cells, id);
@@ -75,14 +68,14 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 
         private void SpawnVehicle()
         {
-            if (new Random().NextDouble() < 0.1)
+            if (new Random().NextDouble() < Configuration.VEHICLE_SPAWN_PROB)
             {
-                int vehicleLength = 5;
-                if (this.cells.Skip(0).Take(vehicleLength).Sum() == 0 && TrafficSimulation.numVehicles < 30)
+                if (this.cells.Skip(0).Take(Configuration.VEHICLE_LENGTH).Sum() == 0 && TrafficSimulation.numVehicles < Configuration.MAX_VEHICLES)
                 {
                     TrafficSimulation.numVehicles++;
-                    Console.WriteLine("Spawning vehicle " + TrafficSimulation.numVehicles);
-                    this.vehicles.Add(new Vehicle(vehicleLength, this));
+                    if (Configuration.VALIDATION_SCRIPT_LOGS)
+                        Console.WriteLine(this.ToString() + " spawning Vehicle: " + TrafficSimulation.nextVehicleIndex);
+                    this.vehicles.Add(new Vehicle(Configuration.VEHICLE_LENGTH, this));
                 }
             }
         }
@@ -94,7 +87,8 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 
         public void RemoveVehicle(Vehicle vehicle)
         {
-            Console.WriteLine("removing vehicle: " + vehicle.id + " from edge: " + this);
+            if (Configuration.VALIDATION_SCRIPT_LOGS)
+                Console.WriteLine(this.ToString() + " removing vehicle: " + vehicle.id);
             for (int i = 0; i < this.cells.Length; i++)
                 if (cells[i] == vehicle.id)
                     cells[i] = 0;
@@ -104,7 +98,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
 
         public override string ToString()
         {
-            return string.Format("Edge {0}", id);
+            return string.Format("Edge: {0}", id);
         }
     }
 }

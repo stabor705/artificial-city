@@ -70,20 +70,18 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             );
         }
 
+        public override string ToString()
+        {
+            return string.Format("Vertex: {0}", id);
+        }
     }
 
     public class Crossing : Vertex
     {
         public bool pedestriansCrossing = false;
-        const int MIN_COUNTDOWN = 240;
-        const int COUNTDOWN_VARIANCE = 120;
-        const double PROBABILITY = 0.03;
-
         public int countdown = -1;
-        public Crossing(int id, double lng, double lat) : base(id, lng, lat)
-        {
 
-        }
+        public Crossing(int id, double lng, double lat) : base(id, lng, lat) {}
 
         public void PedestriansCrossing()
         {
@@ -96,7 +94,9 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             {
                 this.InEdges.ForEach(edge => edge.cells[edge.length - 1] = -1);
                 this.pedestriansCrossing = true;
-                this.countdown = new Random().Next(COUNTDOWN_VARIANCE) + MIN_COUNTDOWN;
+                if (Configuration.VALIDATION_SCRIPT_LOGS)
+                    Console.WriteLine(this.ToString() + " pedestrians crossing start");
+                this.countdown = new Random().Next(Configuration.PEDESTRIAN_CROSSING_COUNTDOWN_VARIANCE) + Configuration.PEDESTRIAN_CROSSING_MIN_COUNTDOWN;
             }
         }
 
@@ -109,6 +109,8 @@ namespace NagelSchreckenbergDemo.DirectedGraph
                 inEdge.cells[inEdge.length - 1] = 0;
             }
             this.pedestriansCrossing = false;
+            if (Configuration.VALIDATION_SCRIPT_LOGS)
+                Console.WriteLine(this.ToString() + " pedestrians crossing end");
             this.countdown = -1;
         }
 
@@ -116,7 +118,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         {
             if (this.countdown == -1)
             {
-                if (new Random().NextDouble() < PROBABILITY)
+                if (new Random().NextDouble() < Configuration.PEDESTRIAN_CROSSING_PROBABILITY)
                     PedestriansCrossing();
             }
             else if (this.countdown == 0)

@@ -11,7 +11,6 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         public List<Edge> edges { set; get; }
         public int numEdges { set; get; }
 
-        public int[,] adjacencyMatrix { set; get; }
 
         public DirectedGraph()
         {
@@ -19,23 +18,6 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.numVertices = 0;
             this.edges = new List<Edge>();
             this.numEdges = 0;
-
-            this.adjacencyMatrix = new int[this.numVertices, this.numVertices];
-        }
-
-        // IDK why I did it
-        public DirectedGraph(List<Vertex> vertices, List<Edge> edges)
-        {
-            this.vertices = vertices;
-            this.numVertices = vertices.Count;
-            this.edges = edges;
-            this.numEdges = edges.Count;
-
-            this.adjacencyMatrix = new int[this.numVertices, this.numVertices];
-            foreach (var edge in edges)
-            {
-                adjacencyMatrix[edge.startV.id, edge.endV.id] = 1;
-            }
         }
 
         public void AddVertex(double lng, double lat)

@@ -60,7 +60,7 @@ namespace NagelSchreckenbergDemo
             roadSystem.AddEdge(EGDE_LENGTH, 6, 3);
         }
 
-        public void Run(bool debug = true)
+        public void Run()
         {
             int time = 0;
             while (true)
@@ -72,36 +72,37 @@ namespace NagelSchreckenbergDemo
                 roadSystem.vertices.ForEach(vertex => vertex.Iterate());
                 roadSystem.edges.ForEach(edge => edge.Iterate(time));
 
-                PrintState(debug);
-                Thread.Sleep(10);
+                if (Configuration.PRINT_GRAPH_STATE_ON_EACH_ITERATION)
+                    PrintState();
+                Thread.Sleep(Configuration.TIME_BETWEEN_ITERATIONS);
             }
         }
 
-        public void PrintState(bool debug)
+        public void PrintState()
         {
             // Console.WriteLine("-----------------------------------------------------------------------");
             // foreach (Vertex vertex in roadSystem.vertices)
             // {
-            //     Console.WriteLine("Vertex: " + vertex.id + " state " + vertex.state);
+            //     Console.WriteLine(vertex.ToString() + " state " + vertex.state);
             // }
             Console.WriteLine("-----------------------------------------------------------------------");
             foreach (Edge edge in roadSystem.edges)
             {
-                Console.WriteLine("Edge: " + edge.id + " starts from Vertex: " + edge.startV.id + " ends with Vertex: " + edge.endV.id + " and has state: " + edge.endV.GetInEdgeState(edge.id) ?? "null");
-                if (debug)
+                Console.WriteLine(edge.ToString() + " starts from " + edge.startV.ToString() + " ends with " + edge.endV.ToString() + " and has state: " + edge.endV.GetInEdgeState(edge.id) ?? "null");
+                if (Configuration.DEBUG)
                 {
-                    Console.WriteLine("(" + edge.startV.id + ") " + string.Join("", edge.cells.Select(x => {
+                    Console.WriteLine("(" + edge.startV.ToString() + ") " + string.Join("", edge.cells.Select(x => {
                         if (x == -1)
                             return '=';
                         else if (x == 0)
                             return '_';
                         else
                             return (x % 10).ToString()[0];
-                    }).ToArray()) + " (" + edge.endV.id + ")");
+                    }).ToArray()) + " (" + edge.endV.ToString() + ")");
                 }
                 else
                 {
-                    Console.WriteLine("(" + edge.startV.id + ") " + string.Join("", edge.cells.Select(cell =>
+                    Console.WriteLine("(" + edge.startV.ToString() + ") " + string.Join("", edge.cells.Select(cell =>
                     {
                         if (cell == -1)
                             return '=';
@@ -109,7 +110,7 @@ namespace NagelSchreckenbergDemo
                             return '_';
                         else
                             return '#';
-                    }).ToArray()) + " (" + edge.endV.id + ")");
+                    }).ToArray()) + " (" + edge.endV.ToString() + ")");
                 }
 
             }
@@ -121,15 +122,15 @@ namespace NagelSchreckenbergDemo
             Console.WriteLine("-----------------------------------------------------------------------");
             foreach (var vertex in roadSystem.vertices)
             {
-                Console.Write("Vertex: " + vertex.id + " inbound edges from vertices: ");
+                Console.Write(vertex.ToString() + " inbound edges from vertices: ");
                 foreach (var inEdge in vertex.InEdges)
                 {
-                    Console.Write(inEdge.startV.id + "(" + inEdge.id + ") ");
+                    Console.Write(inEdge.startV.ToString() + "(" + inEdge.ToString() + ") ");
                 }
-                Console.Write("outbound edges to vertices: ");
+                Console.Write(vertex.ToString() + " outbound edges to vertices: ");
                 foreach (var outEdge in vertex.OutEdges)
                 {
-                    Console.Write(outEdge.endV.id + "(" + outEdge.id + ") ");
+                    Console.Write(outEdge.endV.ToString() + "(" + outEdge.ToString() + ") ");
                 }
                 Console.WriteLine();
             }

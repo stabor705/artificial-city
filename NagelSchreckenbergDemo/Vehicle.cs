@@ -34,7 +34,7 @@ namespace NagelSchreckenbergDemo
 
         private void IncreaseVelocity()
         {
-            if (velocity < 6)
+            if (velocity < Configuration.MAX_VELOCITY)
                 this.velocity++;
         }
 
@@ -45,7 +45,7 @@ namespace NagelSchreckenbergDemo
 
         private void RandomlyDecreaseVelocity()
         {
-            if (new Random().NextDouble() >= 0.5)
+            if (new Random().NextDouble() >= Configuration.RANDOM_VELOCITY_DECREASE_PROB)
                 this.DecreaseVelocity(1);
         }
 
@@ -57,16 +57,15 @@ namespace NagelSchreckenbergDemo
             while (index < this.edge.length && this.edge.cells[index] == 0)
                 index++;
 
-            /*
-            TODO Here goes the logic for setting the state for current edge's end Vertex
-            */
-            Console.WriteLine("Edge " + this.edge.id + " vehicle " + this.id + " sum: " + this.edge.cells.Skip(start).Sum());
+            if (Configuration.DEBUG_FULL)
+                Console.WriteLine(this.edge.ToString() + " " + this.ToStringExtended() + " sum: " + this.edge.cells.Skip(start).Sum());
             if (
                 this.edge.cells.Skip(start).Sum() == 0 // must be the first to the crossroads
                 && this.edge.length - start <= this.reservationDistance // must be closer than or equal to reservationDistance
             )
             {
-                Console.WriteLine(this + " edge: " + this.edge + " current state: " + this.edge.endV.GetInEdgeState(this.edge.id) + " state to set: " + vertexStateToBeSet + " next edge: " + this.nextEdge + " direction: " + this.nextEdgeDirection);
+                if (Configuration.DEBUG_FULL)
+                    Console.WriteLine(this.ToStringExtended() + " " + this.edge.ToString() + " current state: " + this.edge.endV.GetInEdgeState(this.edge.id) + " state to set: " + vertexStateToBeSet + " next " + this.nextEdge?.ToString() + " direction: " + this.nextEdgeDirection);
                 this.edge.endV.SetInEdgeState(this.edge.id, VertexState.GetState(nextEdgeDirection, this.edge.priority));
             }
 
@@ -81,7 +80,6 @@ namespace NagelSchreckenbergDemo
             )
             {
                 int nextIndex = index - this.edge.length;
-                // Console.WriteLine("New edge " + id + " " + nextIndex);
                 while (nextIndex < this.nextEdge.length && this.nextEdge.cells[nextIndex] == 0)
                 {
                     nextIndex++;
@@ -95,7 +93,8 @@ namespace NagelSchreckenbergDemo
         private void EvaluateVelocity()
         {
             int spaceInFront = SpaceInFront();
-            // Console.WriteLine("Space in front of vehicle " + this.id + ": " + spaceInFront);
+            if (Configuration.DEBUG_FULL)
+                Console.WriteLine(this.ToString() + " space in front: " + spaceInFront);
             if (this.velocity < spaceInFront)
                 this.IncreaseVelocity();
             else
@@ -107,7 +106,8 @@ namespace NagelSchreckenbergDemo
 
         private void MoveOneCell()
         {
-            // Console.WriteLine("vehicle: " + this.id + " front position: " + this.FrontPosition());
+            if (Configuration.DEBUG_FULL)
+                Console.WriteLine(this.ToString() + " front position: " + this.FrontPosition());
             if (this.nextEdge is not null && this.FrontPosition() >= this.edge.length + this.length - 1)
             {
                 ChangeEdge();
@@ -123,7 +123,6 @@ namespace NagelSchreckenbergDemo
                 this.nextEdge.cells[this.FrontPosition() - this.edge.cells.Length + 1] = id;
 
             int backPosition = this.BackPosition();
-            // Console.WriteLine("current edge: " + this.edge.id + " " + string.Join("", this.edge.cells));
             if (backPosition != -1)
                 this.edge.cells[backPosition] = 0;
 
@@ -139,7 +138,8 @@ namespace NagelSchreckenbergDemo
             if ((this.velocity * time % 60) == 0)
             {
                 EvaluateVelocity();
-                // Console.WriteLine("vehicle: " + this.id + " velocity: " + this.velocity + " edge: " + this.edge.id);
+                if (Configuration.DEBUG_FULL)
+                    Console.WriteLine(this.ToStringExtended());
                 MoveOneCell();
             }
 
@@ -205,21 +205,23 @@ namespace NagelSchreckenbergDemo
                 this.vertexStateToBeSet = 0;
                 return null;
             }
-            // Console.WriteLine("Candidates for vehicle " + this.id + ": " + string.Join("", edge.id));
+            if (Configuration.DEBUG_FULL)
+                Console.WriteLine(this.ToString() + " new edge candidates: " + string.Join("", edge.id));
 
             int candidateIndex = new Random().Next(0, candidates.Count);
             Edge pickedEdge = candidates[candidateIndex];
             this.nextEdgeDirection = determineDirection(candidates, pickedEdge);
             this.vertexStateToBeSet = VertexState.GetState(nextEdgeDirection, this.edge.priority);
             this.reservationDistance = ReservationDistance.GetReservationDistance(nextEdgeDirection, this.edge.priority);
-            Console.WriteLine("Selected next edge id: " + candidates[candidateIndex].id);
-            Console.WriteLine("Next direction is: " + this.nextEdgeDirection);
+            if (Configuration.DEBUG)
+                Console.WriteLine(this.ToString() + " selected next " + candidates[candidateIndex].ToString() + " direction: " + this.nextEdgeDirection);
             return pickedEdge;
         }
 
         private void ChangeEdge()
         {
-            Console.WriteLine("changing old edge: " + this.edge + " to next edge: " + this.nextEdge);
+            if (Configuration.DEBUG)
+                Console.WriteLine(this.ToString() + " changing old " + this.edge.ToString() + " to next " + this.nextEdge?.ToString());
             this.edge.RemoveVehicle(this);
 
             this.edge.endV.UnsetInEdgeState(this.edge.id, vertexStateToBeSet);
@@ -230,10 +232,16 @@ namespace NagelSchreckenbergDemo
             this.edge = this.nextEdge;
             Edge? nE = PickNewEdge();
             this.nextEdge = nE;
-            Console.WriteLine("change completed - current edge: " + this.edge + " and new selected next edge: " + this.nextEdge);
+            if (Configuration.DEBUG)
+                Console.WriteLine(this.ToString() + " change completed - current " + this.edge.ToString() + " and selected next " + this.nextEdge?.ToString());
         }
 
         public override string ToString()
+        {
+            return string.Format("Vehicle: {0}", id);
+        }
+
+        public string ToStringExtended()
         {
             return string.Format("Vehicle {0}: length {1}, velocity: {2} on edge: {3}", id, length, velocity, edge);
         }

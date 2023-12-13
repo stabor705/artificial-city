@@ -1,9 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-using NagelSchreckenbergDemo;
+﻿using NagelSchreckenbergDemo;
 using NagelSchreckenbergDemo.DirectedGraph;
 
-const bool DEBUG = true;
+Configuration.DisplayConfiguration();
 
 TrafficSimulation simulator  = new TrafficSimulation();
-simulator.PrintGraph();
-simulator.Run(DEBUG);
+
+if (Configuration.PRINT_GRAPH_STRUCTURE)
+    simulator.PrintGraph();
+
+simulator.Run();
