@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 
 namespace NagelSchreckenbergDemo.DirectedGraph
 {
     public class Edge
     {
+
+        public Priority priority;
         public int id;
         public int length;
         public int[] cells;
@@ -13,7 +16,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         public Vertex endV;
         public List<Vehicle> vehicles;
 
-        public Edge(int id, int length, Vertex startV, Vertex endV)
+        public Edge(int id, int length, Vertex startV, Vertex endV, Priority priority = Priority.MINOR)
         {
             this.id = id;
             this.length = length;
@@ -21,6 +24,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
             this.startV = startV;
             this.endV = endV;
             this.vehicles = new List<Vehicle>();
+            this.priority = priority;
         }
 
         public int GetIndexOfVehicle(int id)
@@ -40,28 +44,38 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         {
             Vehicle[] tempVehicles = new Vehicle[this.vehicles.Count];
             this.vehicles.CopyTo(tempVehicles);
-            
+
             foreach (Vehicle v in tempVehicles)
             {
-                v.SingleStep(time);
-                if (v.toDelete)
+                if (v.toDeleteCountdown > 0)
+                    v.toDeleteCountdown--;
+                if (v.toDeleteCountdown == 0)
+                {
+                    v.toDeleteCountdown = -1;
                     this.RemoveVehicle(v);
+                    TrafficSimulation.numVehicles--;
+                }
+                v.SingleStep(time);
             }
 
-            if (startV.InEdges is null || startV.InEdges.Count == 0)
+            if (startV.OutEdges.Count == 1 && // because we want to get out of that vertex and we don't want to end up on crossroads
+                (startV.InEdges is null ||
+                startV.InEdges.Count == 0 || // it may be uni-directional road
+                (startV.InEdges.Count == 1 && startV.InEdges.First().startV == this.endV)) // or it can be bi-directional
+               )
                 SpawnVehicle();
         }
 
         private void SpawnVehicle()
         {
-            if (new Random().NextDouble() < 0.1)
+            if (new Random().NextDouble() < Configuration.VEHICLE_SPAWN_PROB)
             {
-                int vehicleLength = 5;
-                if (this.cells.Skip(0).Take(vehicleLength).Sum() == 0 && TrafficSimulation.numVehicles < 3)
+                if (this.cells.Skip(0).Take(Configuration.VEHICLE_LENGTH).Sum() == 0 && TrafficSimulation.numVehicles < Configuration.MAX_VEHICLES)
                 {
                     TrafficSimulation.numVehicles++;
-                    Console.WriteLine("Spawning vehicle " + TrafficSimulation.numVehicles);
-                    this.vehicles.Add(new Vehicle(TrafficSimulation.numVehicles, vehicleLength, this));
+                    if (Configuration.VALIDATION_SCRIPT_LOGS)
+                        Console.WriteLine(this.startV.ToString() + " spawning Vehicle: " + TrafficSimulation.nextVehicleIndex);
+                    this.vehicles.Add(new Vehicle(Configuration.VEHICLE_LENGTH, this));
                 }
             }
         }
@@ -70,20 +84,21 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         {
             this.vehicles.Add(vehicle);
         }
-        
+
         public void RemoveVehicle(Vehicle vehicle)
         {
-            Console.WriteLine("removing vehicle: " + vehicle.id);
+            if (Configuration.VALIDATION_SCRIPT_LOGS && vehicle.nextEdge is null)
+                Console.WriteLine(this.endV.ToString() + " removing " + vehicle.ToString());
             for (int i = 0; i < this.cells.Length; i++)
                 if (cells[i] == vehicle.id)
                     cells[i] = 0;
-            
+
             this.vehicles.Remove(vehicle);
         }
 
         public override string ToString()
         {
-            return string.Format("Edge {0}", id);
+            return string.Format("Edge: {0}", id);
         }
     }
 }
