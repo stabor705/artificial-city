@@ -17,6 +17,7 @@ namespace NagelSchreckenbergDemo
         private List<Vehicle> vehicles;
         private float timer = 0.0f;
         private int simulationTime = 0;
+        public static int nextVehicleIndex = 1;
 
         void Start()
         {
@@ -29,7 +30,7 @@ namespace NagelSchreckenbergDemo
         {
             var numOfVertices = Math.Max(edge_start_vertices.Max(), edge_end_vertices.Max());
             for (int i = 0; i < numOfVertices; i++) {
-                roadSystem.AddVertex();
+                roadSystem.AddVertex(0, 0);
             }
             for (int i = 0; i < automatas.Count; i++) {
                 roadSystem.AddEdge(automatas[i].cells.Count, edge_start_vertices[i], edge_end_vertices[i]);
@@ -48,6 +49,9 @@ namespace NagelSchreckenbergDemo
             simulationTime++;
             if (simulationTime >= maxSimulationFrames) {
                 simulationTime = 1;
+            }
+            foreach (var vertex in roadSystem.vertices) {
+                vertex.Iterate();
             }
             foreach (var edge in roadSystem.edges) {
                 edge.Iterate(simulationTime);
