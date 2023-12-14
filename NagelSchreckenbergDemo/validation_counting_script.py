@@ -19,7 +19,7 @@ spawned_logs = re.findall(r"Vertex: \d+ spawning Vehicle: \d+", all_logs)
 removed_logs = re.findall(r"Vertex: \d+ removing Vehicle: \d+", all_logs)
 pedestrian_logs = re.findall(r"Vertex: \d+ pedestrians crossing start", all_logs)
 direction_logs = re.findall(r"Vehicle: \d+ on Vertex: \d+ going: (?:LEFT|RIGHT|STRAIGHT)", all_logs)
-direction_edges_logs = re.findall(r"Vehicle: \d+ from Edge: \d+ to Edge: \d+ going: (?:LEFT|RIGHT|STRAIGHT)")
+direction_edges_logs = re.findall(r"Vehicle: \d+ from Edge: \d+ to Edge: \d+ going: (?:LEFT|RIGHT|STRAIGHT)", all_logs)
 
 for spawned in spawned_logs:
     edge_id = int(spawned.split('Vertex: ')[-1].split(' ')[0])
@@ -52,7 +52,7 @@ for direction in direction_logs:
     vehicle_direction_for_vertex[vertex_id][vehicle_direction] += 1
 
 for direction_edge in direction_edges_logs:
-    edges, vehicle_direction = direction_edge.split('Vehicle: ')[-1].split(' going: ')
+    edges, vehicle_direction = ' '.join(direction_edge.split('Vehicle: ')[-1].split(' ')[1:]).split(' going: ')
 
     if edges not in vehicle_direction_with_edges:
         vehicle_direction_with_edges[edges] = {'STRAIGHT': 0, 'RIGHT': 0, 'LEFT': 0}
