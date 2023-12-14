@@ -18,6 +18,11 @@ namespace NagelSchreckenbergDemo
             this.Initialize();
         }
 
+        public TrafficSimulation(DirectedGraph.DirectedGraph roadSystem)
+        {
+            this.roadSystem = roadSystem;
+        }
+
         private void Initialize()
         {
             //                    *5
@@ -91,7 +96,8 @@ namespace NagelSchreckenbergDemo
                 Console.WriteLine(edge.ToString() + " starts from " + edge.startV.ToString() + " ends with " + edge.endV.ToString() + " and has state: " + edge.endV.GetInEdgeState(edge.id) ?? "null");
                 if (Configuration.DEBUG)
                 {
-                    Console.WriteLine("(" + edge.startV.ToString() + ") " + string.Join("", edge.cells.Select(x => {
+                    Console.WriteLine("(" + edge.startV.ToString() + ") " + string.Join("", edge.cells.Select(x =>
+                    {
                         if (x == -1)
                             return '=';
                         else if (x == 0)
