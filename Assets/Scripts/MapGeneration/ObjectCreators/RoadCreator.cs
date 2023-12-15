@@ -43,14 +43,14 @@ public class RoadCreator : MonoBehaviour {
         Vector2 roadVec = end - start;
         Vector2 direction = roadVec.normalized;
         Vector2 perp = new Vector2(-direction.y, direction.x) * scaleWidth * 0.5f;
-        Vector2 A = start + perp;
-        Vector2 B = end + perp;
+        Vector2 A = start - perp;
+        Vector2 B = end - perp;
 
         var m = (B.y - A.y) / (B.x - A.x);
         var c = A.y - m*A.x;
         var units = (B - A).magnitude;
         var numberOfCells = Convert.ToInt32(units / (cellDiameter + cellGap));
-        var dx = (B.x - A.x) / numberOfCells;
+        var dx = (B.x - A.x) / (numberOfCells - 1);
         var carSimulation = Instantiate(carSimulationPrefab);
         for (int i = 0; i < numberOfCells; i++) {
             var cell = Instantiate(cellPrefab, carSimulation.transform);
@@ -65,7 +65,7 @@ public class RoadCreator : MonoBehaviour {
         return carSimulation;
     }
 
-    public void AddCarSimulationToRoad(GameObject carSimulation, GameObject road, Vector2 start, Vector2 end, bool isLeft) {
+    public void AddCarSimulationToRoad(GameObject carSimulation, GameObject road, bool isLeft) {
         carSimulation.transform.SetParent(road.transform);
         string laneStr = isLeft ? "Left" : "Right";
         carSimulation.name = $"{laneStr} Lane Car Simulation";

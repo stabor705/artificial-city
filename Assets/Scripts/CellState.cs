@@ -24,6 +24,7 @@ public class CellState : MonoBehaviour {
     public void GoToEmptyState() {
         state = State.Empty;
         _spriteRenderer.color = Color.white;
+        _spriteRenderer.sortingOrder = 1;
     }
 
     public void GoToOccupiedState(int color) {
@@ -35,6 +36,7 @@ public class CellState : MonoBehaviour {
             occupiedColor = colors[color % colors.Count];
         }
         _spriteRenderer.color = occupiedColor;
+        _spriteRenderer.sortingOrder = 1000;
     }
 
     public State GetState() {

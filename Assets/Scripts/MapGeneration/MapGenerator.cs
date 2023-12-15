@@ -44,12 +44,12 @@ namespace MapGeneration {
                     gameObject.transform.SetParent(map.transform);
                     gameObject.name = $"Road {road.id}";
 
-                    var leftCarSimulation = roadCreator.CreateCarSimulation(start, end, true, road.priority);
-                    roadCreator.AddCarSimulationToRoad(leftCarSimulation, gameObject, start, end, true);
-                    var leftCarSimulationComponent = leftCarSimulation.GetComponent<CellAutomataStateManager>();
-                    var rightCarSimulation = roadCreator.CreateCarSimulation(end, start, false, road.priority);
-                    roadCreator.AddCarSimulationToRoad(rightCarSimulation, gameObject, end, start, false);
+                    var rightCarSimulation = roadCreator.CreateCarSimulation(start, end, false, road.priority);
+                    roadCreator.AddCarSimulationToRoad(rightCarSimulation, gameObject, false);
                     var rightCarSimulationComponent = rightCarSimulation.GetComponent<CellAutomataStateManager>();
+                    var leftCarSimulation = roadCreator.CreateCarSimulation(end, start, true, road.priority);
+                    roadCreator.AddCarSimulationToRoad(leftCarSimulation, gameObject, true);
+                    var leftCarSimulationComponent = leftCarSimulation.GetComponent<CellAutomataStateManager>();
 
                     int start_node_idx = 0;
                     int end_node_idx = 0;
@@ -79,10 +79,10 @@ namespace MapGeneration {
                         }
                         end_node_idx = nodes.Count() - 1;
                     }
-                    trafficSimulationComponent.automatas.Add(leftCarSimulationComponent);
+                    trafficSimulationComponent.automatas.Add(rightCarSimulationComponent);
                     trafficSimulationComponent.edge_start_vertices.Add(start_node_idx);
                     trafficSimulationComponent.edge_end_vertices.Add(end_node_idx);
-                    trafficSimulationComponent.automatas.Add(rightCarSimulationComponent);
+                    trafficSimulationComponent.automatas.Add(leftCarSimulationComponent);
                     trafficSimulationComponent.edge_start_vertices.Add(end_node_idx);
                     trafficSimulationComponent.edge_end_vertices.Add(start_node_idx);
                 }
