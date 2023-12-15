@@ -11,7 +11,7 @@ namespace NagelSchreckenbergDemo.DirectedGraph
         public static bool VALIDATION_SCRIPT_LOGS = true;
 
         public static double VEHICLE_SPAWN_PROB = 0.1;
-        public static int VEHICLE_LENGTH = 5;
+        public static int VEHICLE_LENGTH = 2;
         public static int MAX_VEHICLES = 30;
         public static int MAX_VELOCITY = 6;
         public static double RANDOM_VELOCITY_DECREASE_PROB = 0.5;

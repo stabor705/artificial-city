@@ -5,10 +5,10 @@ namespace NagelSchreckenbergDemo.DirectedGraph
     public class Configuration
     {
         public static bool PRINT_GRAPH_STRUCTURE = false;
-        public static bool PRINT_GRAPH_STATE_ON_EACH_ITERATION = false;
+        public static bool PRINT_GRAPH_STATE_ON_EACH_ITERATION = true;
         public static bool DEBUG = false;
         public static bool DEBUG_FULL = false;
-        public static bool VALIDATION_SCRIPT_LOGS = true;
+        public static bool VALIDATION_SCRIPT_LOGS = false;
 
         public static double VEHICLE_SPAWN_PROB = 0.1;
         public static int VEHICLE_LENGTH = 5;
