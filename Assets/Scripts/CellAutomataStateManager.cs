@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using NagelSchreckenbergDemo.DirectedGraph;
 using UnityEngine;
 
 public class CellAutomataStateManager : MonoBehaviour {
     public List<CellState> cells;
+    public Priority priority;
 
     public void refreshCellList() {
         foreach (Transform child in transform) {
@@ -16,8 +18,8 @@ public class CellAutomataStateManager : MonoBehaviour {
         return cells.Count;
     }
 
-    public void SetOccupied(int idx) {
-        cells[idx].GoToOccupiedState();
+    public void SetOccupied(int idx, int color) {
+        cells[idx].GoToOccupiedState(color);
     }
 
     public void SetEmpty(int idx) {

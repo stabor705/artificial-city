@@ -5,6 +5,11 @@ using Unity.Collections;
 public class PointDto {
     public float x;
     public float y;
+
+    public PointDto(float x, float y) {
+        this.x = x;
+        this.y = y;
+    }
 }
 
 [Serializable]

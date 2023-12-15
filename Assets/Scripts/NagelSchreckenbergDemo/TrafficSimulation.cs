@@ -10,6 +10,8 @@ namespace NagelSchreckenbergDemo
         public List<CellAutomataStateManager> automatas;
         public List<int> edge_start_vertices;
         public List<int> edge_end_vertices;
+        public List<Vector2> nodes;
+        public List<Boolean> node_is_crossing = new List<Boolean>();
         public float tickTime;
         public uint maxSimulationFrames;
         public static int numVehicles = 0;
@@ -17,6 +19,7 @@ namespace NagelSchreckenbergDemo
         private List<Vehicle> vehicles;
         private float timer = 0.0f;
         private int simulationTime = 0;
+        public static int nextVehicleIndex = 1;
 
         void Start()
         {
@@ -27,12 +30,15 @@ namespace NagelSchreckenbergDemo
 
         private void Initialize()
         {
-            var numOfVertices = Math.Max(edge_start_vertices.Max(), edge_end_vertices.Max());
-            for (int i = 0; i < numOfVertices; i++) {
-                roadSystem.AddVertex();
+            for (int i = 0; i < nodes.Count; i++) {
+                if (node_is_crossing[i]) {
+                    roadSystem.AddCrossing(nodes[i].x, nodes[i].y);
+                } else {
+                    roadSystem.AddVertex(nodes[i].x, nodes[i].y);
+                }
             }
             for (int i = 0; i < automatas.Count; i++) {
-                roadSystem.AddEdge(automatas[i].cells.Count, edge_start_vertices[i], edge_end_vertices[i]);
+                roadSystem.AddEdge(automatas[i].cells.Count, edge_start_vertices[i], edge_end_vertices[i], automatas[i].priority);
             }
         }
 
@@ -49,6 +55,9 @@ namespace NagelSchreckenbergDemo
             if (simulationTime >= maxSimulationFrames) {
                 simulationTime = 1;
             }
+            foreach (var vertex in roadSystem.vertices) {
+                vertex.Iterate();
+            }
             foreach (var edge in roadSystem.edges) {
                 edge.Iterate(simulationTime);
             }
@@ -56,7 +65,7 @@ namespace NagelSchreckenbergDemo
                 for (int j = 0; j < roadSystem.edges[i].cells.Length; j++) {
                     var edge = roadSystem.edges[i];
                     if (edge.cells[j] != 0) {
-                        automatas[i].SetOccupied(j);
+                        automatas[i].SetOccupied(j, edge.cells[j]);
                     } else {
                         automatas[i].SetEmpty(j);
                     }

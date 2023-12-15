@@ -1,4 +1,5 @@
 using System;
+using NagelSchreckenbergDemo.DirectedGraph;
 using UnityEngine;
 using VectorShapes;
 
@@ -38,26 +39,35 @@ public class RoadCreator : MonoBehaviour {
         shape.ShapeData.AddPolyPoint(D);
     }
 
-    public GameObject CreateCarSimulation(Vector2 start, Vector2 end) {
-        var m = (end.y - start.y) / (end.x - start.x);
-        var c = start.y - m*start.x;
-        var units = (end - start).magnitude;
+    public GameObject CreateCarSimulation(Vector2 start, Vector2 end, bool isLeft, Priority priority) {
+        Vector2 roadVec = end - start;
+        Vector2 direction = roadVec.normalized;
+        Vector2 perp = new Vector2(-direction.y, direction.x) * scaleWidth * 0.5f;
+        Vector2 A = start - perp;
+        Vector2 B = end - perp;
+
+        var m = (B.y - A.y) / (B.x - A.x);
+        var c = A.y - m*A.x;
+        var units = (B - A).magnitude;
         var numberOfCells = Convert.ToInt32(units / (cellDiameter + cellGap));
-        var dx = (end.x - start.x) / numberOfCells;
+        var dx = (B.x - A.x) / (numberOfCells - 1);
         var carSimulation = Instantiate(carSimulationPrefab);
         for (int i = 0; i < numberOfCells; i++) {
             var cell = Instantiate(cellPrefab, carSimulation.transform);
-            var x = start.x + i * dx;
-            cell.GetComponent<SpriteRenderer>().transform.position = new Vector3(x, m * x + c);
+            var x = A.x + i * dx;
+            //var pos = isLeft ? new Vector3(x, m * x + c + 0.5f * scaleWidth) : new Vector3(x, m * x + c - 0.5f * scaleWidth);
+            var pos = new Vector3(x, m * x + c);
+            cell.GetComponent<SpriteRenderer>().transform.position = pos;
         }
         var cellAutomata = carSimulation.GetComponent<CellAutomataStateManager>();
         cellAutomata.refreshCellList();
+        cellAutomata.priority = priority;
         return carSimulation;
     }
 
-    public void AddCarSimulationToRoad(GameObject carSimulation, GameObject road, Vector2 start, Vector2 end, bool lane) {
+    public void AddCarSimulationToRoad(GameObject carSimulation, GameObject road, bool isLeft) {
         carSimulation.transform.SetParent(road.transform);
-        string laneStr = lane ? "Left" : "Right";
+        string laneStr = isLeft ? "Left" : "Right";
         carSimulation.name = $"{laneStr} Lane Car Simulation";
     }
 }

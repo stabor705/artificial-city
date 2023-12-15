@@ -1,5 +1,4 @@
 using System.Linq;
-using System;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEditor;
@@ -27,6 +26,7 @@ namespace MapGeneration {
             var buildings = buildingsDto.buildings.Select(dto => Building.FromDto(dto, geometryMapper));
             var roadsDto = JsonUtility.FromJson<RoadsDto>(roadsJson.text);
             var roads = roadsDto.network.Select(dto => Road.FromDto(dto, geometryMapper));
+            List<Node> roadNodes = roadsDto.nodes.Select(dto => Node.FromDto(dto, geometryMapper)).ToList();
 
             foreach (var building in buildings) {
                 var gameObject = buildingCreator.CreateBuilding(building.geometry);
@@ -44,10 +44,12 @@ namespace MapGeneration {
                     gameObject.transform.SetParent(map.transform);
                     gameObject.name = $"Road {road.id}";
 
-                    var carSimulation = roadCreator.CreateCarSimulation(start, end);
-                    roadCreator.AddCarSimulationToRoad(carSimulation, gameObject, start, end, true);
-                    var carSimulationComponent = carSimulation.GetComponent<CellAutomataStateManager>();
-
+                    var rightCarSimulation = roadCreator.CreateCarSimulation(start, end, false, road.priority);
+                    roadCreator.AddCarSimulationToRoad(rightCarSimulation, gameObject, false);
+                    var rightCarSimulationComponent = rightCarSimulation.GetComponent<CellAutomataStateManager>();
+                    var leftCarSimulation = roadCreator.CreateCarSimulation(end, start, true, road.priority);
+                    roadCreator.AddCarSimulationToRoad(leftCarSimulation, gameObject, true);
+                    var leftCarSimulationComponent = leftCarSimulation.GetComponent<CellAutomataStateManager>();
 
                     int start_node_idx = 0;
                     int end_node_idx = 0;
@@ -55,6 +57,13 @@ namespace MapGeneration {
                         start_node_idx = nodes.IndexOf(start);
                     } else {
                         nodes.Add(start);
+                        Debug.Log(roadNodes[0].pos);
+                        var roadNode = roadNodes.Find(node => node.pos == start);
+                        if (roadNode != null && roadNode.isCrossing) {
+                            trafficSimulationComponent.node_is_crossing.Add(true);
+                        } else {
+                            trafficSimulationComponent.node_is_crossing.Add(false);
+                        }
                         start_node_idx = nodes.Count() - 1;
                     }
 
@@ -62,12 +71,22 @@ namespace MapGeneration {
                         end_node_idx = nodes.IndexOf(end);
                     } else {
                         nodes.Add(end);
+                        var roadNode = roadNodes.Find(node => node.pos == end);
+                        if (roadNode != null && roadNode.isCrossing) {
+                            trafficSimulationComponent.node_is_crossing.Add(true);
+                        } else {
+                            trafficSimulationComponent.node_is_crossing.Add(false);
+                        }
                         end_node_idx = nodes.Count() - 1;
                     }
-                    trafficSimulationComponent.automatas.Add(carSimulationComponent);
+                    trafficSimulationComponent.automatas.Add(rightCarSimulationComponent);
                     trafficSimulationComponent.edge_start_vertices.Add(start_node_idx);
                     trafficSimulationComponent.edge_end_vertices.Add(end_node_idx);
+                    trafficSimulationComponent.automatas.Add(leftCarSimulationComponent);
+                    trafficSimulationComponent.edge_start_vertices.Add(end_node_idx);
+                    trafficSimulationComponent.edge_end_vertices.Add(start_node_idx);
                 }
+                trafficSimulationComponent.nodes = nodes;
             }
         }
 
